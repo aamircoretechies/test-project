@@ -1,0 +1,26 @@
+.notiList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.notiList li {
+  padding: 15px;
+  border-bottom: 1px solid #e7eaf3;
+}
+.notiList li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+.notiList li a p {
+  margin: 0;
+  font-size: 16px;
+  color: #222222;
+}
+.notiList li a span {
+  font-style: italic;
+  font-size: 13px;
+  color: #989696;
+}
+.normal {
+  font-weight: 500 !important;
+}

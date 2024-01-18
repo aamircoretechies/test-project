@@ -1,0 +1,129 @@
+<div class="path-user">
+  <div class="page-user page-cart">
+    <header role="banner">
+      <div class="region region-header">
+        <div
+          id="block-mrkliin-page-title"
+          class="block block-core block-page-title-block"
+        >
+          <h1 class="page-title">{{ "login" | translate }}</h1>
+        </div>
+        <div
+          id="block-mrkliin-primary-local-tasks"
+          class="block block-core block-local-tasks-block"
+        >
+          <nav class="tabs" role="navigation" aria-label="Tabs">
+            <h2 class="visually-hidden">Primary tabs</h2>
+            <ul class="tabs primary">
+              <li>
+                {{ "dontHaveAccount" | translate }}
+                <a
+                  routerLink="/signup"
+                  data-drupal-link-system-path="user/register"
+                  >{{ "signup" | translate }}</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          id="block-mrkliin-breadcrumbs"
+          class="block block-system block-system-breadcrumb-block"
+        >
+          <nav
+            class="breadcrumb"
+            role="navigation"
+            aria-labelledby="system-breadcrumb"
+          >
+            <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+            <ol>
+              <li>
+                <a routerLink="/">Home</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div data-drupal-messages-fallback class="hidden"></div>
+      </div>
+    </header>
+
+    <main role="main">
+      <a id="main-content" tabindex="-1"></a>
+      <div class="layout-content">
+        <div class="region region-content">
+          <div
+            id="block-mrkliin-content"
+            class="block block-system block-system-main-block"
+          >
+            <form
+              class="user-login-form"
+              id="user-login-form"
+              [formGroup]="loginForm"
+              (ngSubmit)="onFormSubmit()"
+            >
+              <div
+                class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+              >
+                <label for="edit-name" class="js-form-required form-required">{{
+                  "emailAddress" | translate
+                }}</label>
+                <input
+                  autofocus="autofocus"
+                  placeholder="{{ 'enterEmail' | translate }}"
+                  type="text"
+                  id="edit-name"
+                  class="form-text required"
+                  formControlName="email"
+                />
+                <div id="edit-name--description" class="description">
+                  {{ "enterYourEmailAddress" | translate }}
+                </div>
+              </div>
+              <div
+                class="js-form-item form-item js-form-type-password form-type-password js-form-item-pass form-item-pass"
+                style="margin-bottom:1em"
+              >
+                <span class="view-pass pass-hidden" (click)="showHidePassword()"
+                  ><img src="./assets/images/{{ eyeIcon }}"
+                /></span>
+                <label for="edit-pass" class="js-form-required form-required">{{
+                  "password" | translate
+                }}</label>
+                <input
+                  placeholder="{{ 'enterPassword' | translate }}"
+                  type="{{ inputType }}"
+                  id="edit-pass"
+                  class="form-text required"
+                  formControlName="password"
+                />
+                <div id="edit-pass--description" class="description">
+                  {{ "enterThePassword" | translate }}
+                </div>
+              </div>
+              <a
+                routerLink="/forgot-password"
+                class="link"
+                style="font-size:14px"
+                >{{ "IforgotPassword" | translate }}</a
+              >
+              <div
+                data-drupal-selector="edit-actions"
+                class="form-actions js-form-wrapper form-wrapper"
+                id="edit-actions"
+              >
+                <input
+                  type="submit"
+                  [disabled]="loginForm.invalid"
+                  id="edit-submit"
+                  value="{{ 'login' | translate }}"
+                  class="button js-form-submit form-submit login-btn"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-insert"></div>
+    </main>
+  </div>
+</div>

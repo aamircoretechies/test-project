@@ -1,0 +1,35 @@
+<!-- .preloader -->
+<!--<div class="preloader"></div>-->
+<!-- /.preloader -->
+<ngx-spinner></ngx-spinner>
+<app-header [class.hide-header]="orderPages"></app-header>
+<!--[class.hide-header]="
+    router.url == '/order-start' ||
+    router.url == '/pickup-dropoff' ||
+    router.url == '/review-order' ||
+    router.url == '/thankyou'
+  "-->
+<!--Alert Divs-->
+<div class="toast-container alert alert-danger" *ngIf="showErrorMsg">
+  {{ errorMsg }}
+  <a href="#" class="close" (click)="hideToastMsg()">&times;</a>
+</div>
+<div class="toast-container alert alert-success" *ngIf="showSuccessMsg">
+  {{ successMsg }}
+  <a href="#" class="close" (click)="hideToastMsg()">&times;</a>
+</div>
+<div (click)="hideOpenMenus()" >
+  <router-outlet></router-outlet>
+</div>
+<app-footer [class.hide-footer]="orderPages"></app-footer>
+<!--[class.hide-footer]="
+    router.url == '/order-start' ||
+    router.url == '/pickup-dropoff' ||
+    router.url == '/review-order' ||
+    router.url == '/thankyou'
+  "-->
+
+<!--Scroll to top-->
+<!--<a class="scroll-to-top scroll-to-target" (click)="gotoTop()">
+  <span class="icon fa fa-angle-up"></span>
+</a>-->

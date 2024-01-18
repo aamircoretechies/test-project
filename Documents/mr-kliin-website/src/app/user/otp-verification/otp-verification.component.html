@@ -1,0 +1,129 @@
+<div class="path-user">
+  <div class="page-user page-cart">
+    <header role="banner">
+      <div class="region region-header">
+        <div
+          id="block-mrkliin-page-title"
+          class="block block-core block-page-title-block"
+        >
+          <h1 class="page-title">Email Verification</h1>
+        </div>
+        <div
+          id="block-mrkliin-primary-local-tasks"
+          class="block block-core block-local-tasks-block"
+        >
+          <nav class="tabs" role="navigation" aria-label="Tabs">
+            <h2 class="visually-hidden">Primary tabs</h2>
+            <ul class="tabs primary">
+              <li>
+                Enter the code sent to your email address.
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          id="block-mrkliin-primary-local-tasks"
+          class="block block-core block-local-tasks-block"
+        >
+          <nav class="tabs" role="navigation" aria-label="Tabs">
+            <h2 class="visually-hidden">Primary tabs</h2>
+          </nav>
+        </div>
+        <div
+          id="block-mrkliin-breadcrumbs"
+          class="block block-system block-system-breadcrumb-block"
+        >
+          <nav
+            class="breadcrumb"
+            role="navigation"
+            aria-labelledby="system-breadcrumb"
+          >
+            <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+            <ol>
+              <li>
+                <a routerLink="/">Home</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div data-drupal-messages-fallback class="hidden"></div>
+      </div>
+    </header>
+
+    <main role="main">
+      <a id="main-content" tabindex="-1"></a>
+      <div class="layout-content">
+        <div class="region region-content">
+          <div
+            id="block-mrkliin-content"
+            class="block block-system block-system-main-block"
+          >
+            <form
+              class="user-pass"
+              method="post"
+              [formGroup]="otpForm"
+              (ngSubmit)="onFormSubmit()"
+            >
+              <div
+                class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+              >
+                <label for="edit-name" class="js-form-required form-required"
+                  >Enter Code</label
+                >
+                <!--<input
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  autofocus="autofocus"
+                  data-drupal-selector="edit-name"
+                  type="text"
+                  id="edit-name"
+                  name="name"
+                  value=""
+                  size="60"
+                  maxlength="254"
+                  class="form-text required"
+                  required="required"
+                  aria-required="true"
+                />-->
+                <ng-otp-input
+                  #ngOtpInput
+                  (onInputChange)="onOtpChange($event)"
+                  *ngIf="showOtpComponent"
+                  [config]="otpConfig"
+                  autocomplete="off"
+                ></ng-otp-input>
+                <div *ngIf="otpError">
+                  <small class="text-danger">
+                    {{ "validCode" | translate }}
+                  </small>
+                </div>
+              </div>
+              <a
+                href="#"
+                (click)="resendRegisterOtp()"
+                class="link"
+                style="font-size:14px"
+                >Resend now</a
+              >
+
+              <div
+                data-drupal-selector="edit-actions"
+                class="form-actions js-form-wrapper form-wrapper"
+                id="edit-actions"
+              >
+                <input
+                  type="submit"
+                  name="submit"
+                  value="Verify Code"
+                  class="button js-form-submit form-submit"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-insert"></div>
+    </main>
+  </div>
+</div>

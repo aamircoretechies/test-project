@@ -1,0 +1,42 @@
+.hiw-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hiw-desktop {
+    display: none;
+  }
+  .hiw-mobile {
+    display: block;
+  }
+  .howBox {
+    text-align: center;
+    margin: 20px 0 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 40px;
+  }
+  .howBox h1 {
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .howBox img {
+    max-width: 100%;
+    width: 30%;
+  }
+  .howBox ul.tick-list {
+    width: 40%;
+    margin: auto;
+    text-align: left;
+    line-height: 30px;
+    list-style: disc;
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .howBox ul.tick-list {
+    width: 80%;
+  }
+  .howBox img {
+    width: 70%;
+  }
+}

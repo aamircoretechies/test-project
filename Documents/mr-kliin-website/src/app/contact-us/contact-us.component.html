@@ -1,0 +1,342 @@
+<div class="path-node page-node-type-page page-pricing">
+  <header
+    role="banner"
+    style="
+      background-image: url('assets/sites/default/files/2020-08/IMG_0341.jpg');
+    "
+  >
+    <div class="region region-header">
+      <div
+        id="block-mrkliin-page-title"
+        class="block block-core block-page-title-block"
+      >
+        <h1 class="page-title">
+          <span
+            property="schema:name"
+            class="field field--name-title field--type-string field--label-hidden"
+            >{{ "contactUs" | translate }}</span
+          >
+        </h1>
+      </div>
+      <div
+        class="views-element-container block block-views block-views-blockpage-subtitle-block-1"
+        id="block-views-block-page-subtitle-block-1"
+      >
+        <div>
+          <div
+            class="view view-page-subtitle view-id-page_subtitle view-display-id-block_1 js-view-dom-id-52130cc1fa00128c78144d0e666c0b1e3b0ed822f178c1d08a5b6867583da3f0"
+          >
+            <div class="view-content">
+              <div class="views-row">
+                <div class="views-field views-field-field-basic-page-subtitle">
+                  <div class="field-content">
+                    <p>{{ "getInTouchWithUs" | translate }}!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="block-mrkliin-breadcrumbs"
+        class="block block-system block-system-breadcrumb-block"
+      >
+        <nav
+          class="breadcrumb"
+          role="navigation"
+          aria-labelledby="system-breadcrumb"
+        >
+          <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+          <ol>
+            <li>
+              <a routerLink="/">Home</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div data-drupal-messages-fallback class="hidden"></div>
+    </div>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <article
+            data-history-node-id="7"
+            role="article"
+            about="/pickup-locations"
+            typeof="schema:WebPage"
+            class="node node--type-page node--view-mode-full"
+          >
+            <span
+              property="schema:name"
+              content="Pickup locations"
+              class="rdf-meta hidden"
+            ></span>
+            <div class="node__content">
+              <div
+                class="clearfix text-formatted field field--name-field-basic-page-subtitle field--type-text-long field--label-hidden field__item"
+              >
+                <p>Marbella</p>
+              </div>
+              <div
+                class="field field--name-field-paragraphs-ba field--type-entity-reference-revisions field--label-hidden field__items"
+              >
+                <div class="field__item">
+                  <div
+                    class="paragraph paragraph--type--contact-us paragraph--view-mode--default"
+                  >
+                    <div class="content">
+                      <h2>
+                        <div
+                          class="field field--name-field-title field--type-string field--label-hidden field__item"
+                        >
+                          {{ "doYouHaveAQuestion" | translate }}
+                        </div>
+                      </h2>
+                      <div
+                        class="field field--name-field-subtitle field--type-string field--label-hidden field__item"
+                      >
+                        {{ "doYouHaveAQuestionSubHeading" | translate }}
+                      </div>
+                      <div class="contact-us-inner">
+                        <div
+                          class="field field--name-field-contact-form field--type-webform field--label-hidden field__item"
+                        >
+                          <form
+                            class="webform-submission-form webform-submission-add-form webform-submission-contact-form webform-submission-contact-add-form webform-submission-contact-paragraph-106-form webform-submission-contact-paragraph-106-add-form js-webform-details-toggle webform-details-toggle"
+                            id="webform-submission-contact-paragraph-106-add-form"
+                            [formGroup]="contactForm"
+                            (ngSubmit)="onContactSubmit()"
+                          >
+                            <div
+                              class="webform-elements js-form-wrapper form-wrapper"
+                              data-drupal-selector="edit-elements"
+                              id="edit-elements"
+                            >
+                              <div
+                                class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name form-no-label"
+                              >
+                                <label
+                                  for="edit-name"
+                                  class="visually-hidden js-form-required form-required"
+                                  >{{ "yourNameField" | translate }}</label
+                                >
+                                <input
+                                  type="text"
+                                  id="edit-name"
+                                  name="name"
+                                  value=""
+                                  size="60"
+                                  maxlength="255"
+                                  placeholder="{{
+                                    'yourNameField' | translate
+                                  }}"
+                                  class="form-text required"
+                                  aria-required="true"
+                                  formControlName="name"
+                                />
+                                <!--Validation Error Message-->
+                                <div class="error-msg">
+                                  <div *ngIf="name.invalid && name.touched">
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="name.errors?.required"
+                                    >
+                                      Name is required
+                                    </small>
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="name.errors?.minlength"
+                                    >
+                                      Name must be 3 characters long
+                                    </small>
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="name.errors?.maxlength"
+                                    >
+                                      Name can't exceed 50 characters
+                                    </small>
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="name.errors?.pattern"
+                                    >
+                                      Please enter valid name
+                                    </small>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="js-form-item form-item js-form-type-email form-type-email js-form-item-email form-item-email form-no-label"
+                              >
+                                <label
+                                  for="edit-email"
+                                  class="visually-hidden js-form-required form-required"
+                                  >{{ "yourEmailField" | translate }}</label
+                                >
+                                <input
+                                  data-drupal-selector="edit-email"
+                                  type="email"
+                                  id="edit-email"
+                                  name="email"
+                                  value=""
+                                  size="60"
+                                  maxlength="254"
+                                  placeholder="{{
+                                    'yourEmailField' | translate
+                                  }}"
+                                  class="form-email required"
+                                  required="required"
+                                  aria-required="true"
+                                  formControlName="email"
+                                />
+                                <!--Validation Error Message-->
+                                <div class="error-msg">
+                                  <div *ngIf="email.invalid && email.touched">
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="email.errors?.required"
+                                    >
+                                      Email is required
+                                    </small>
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="email.errors?.email"
+                                    >
+                                      Email must be in valid format
+                                    </small>
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="email.errors?.minlength"
+                                    >
+                                      Email must be 3 characters long
+                                    </small>
+                                    <small
+                                      class="text-danger"
+                                      *ngIf="email.errors?.maxlength"
+                                    >
+                                      Email can't exceed 100 characters
+                                    </small>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="js-form-item form-item js-form-type-textarea form-type-textarea js-form-item-message form-item-message form-no-label"
+                              >
+                                <label
+                                  for="edit-message"
+                                  class="visually-hidden js-form-required form-required"
+                                  >{{ "yourMessageField" | translate }}</label
+                                >
+                                <div class="form-textarea-wrapper">
+                                  <textarea
+                                    data-drupal-selector="edit-message"
+                                    id="edit-message"
+                                    name="message"
+                                    rows="5"
+                                    cols="60"
+                                    placeholder="{{
+                                      'yourMessageField' | translate
+                                    }}"
+                                    class="form-textarea required resize-vertical"
+                                    required="required"
+                                    aria-required="true"
+                                    formControlName="message"
+                                  ></textarea>
+                                  <!--Validation Error Message-->
+                                  <div class="error-msg">
+                                    <div
+                                      *ngIf="message.invalid && message.touched"
+                                    >
+                                      <small
+                                        class="text-danger"
+                                        *ngIf="message.errors?.required"
+                                      >
+                                        Message is required
+                                      </small>
+                                      <small
+                                        class="text-danger"
+                                        *ngIf="message.errors?.minlength"
+                                      >
+                                        Message must be 10 characters long
+                                      </small>
+                                      <small
+                                        class="text-danger"
+                                        *ngIf="message.errors?.maxlength"
+                                      >
+                                        Message can't exceed 500 characters
+                                      </small>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                data-drupal-selector="edit-actions"
+                                class="form-actions webform-actions js-form-wrapper form-wrapper"
+                                id="edit-actions"
+                              >
+                                <input
+                                  class="webform-button--submit button button--primary js-form-submit form-submit"
+                                  data-drupal-selector="edit-actions-submit"
+                                  type="submit"
+                                  id="edit-actions-submit"
+                                  value="{{ 'sendMessage' | translate }}"
+                                  [disabled]="contactForm.invalid"
+                                />
+                              </div>
+                            </div>
+                            <input
+                              autocomplete="off"
+                              data-drupal-selector="form-wic4adk8v5oe4jdpa8fjvbj8ypmb9luomnxupttib8e"
+                              type="hidden"
+                              name="form_build_id"
+                              value="form-WiC4ADk8v5Oe4JdPA8fjvBJ8yPMb9LuOMNxuPttib8E"
+                            />
+                            <input
+                              data-drupal-selector="edit-webform-submission-contact-paragraph-106-add-form"
+                              type="hidden"
+                              name="form_id"
+                              value="webform_submission_contact_paragraph_106_add_form"
+                            />
+                          </form>
+                        </div>
+                        <div class="contact-us-links">
+                          <div
+                            class="clearfix text-formatted field field--name-field-additional-text field--type-text field--label-hidden field__item"
+                          >
+                            {{ "notIntoEmail" | translate }}
+                          </div>
+                          <div
+                            class="field field--name-field-contact-link field--type-link field--label-hidden field__item"
+                          >
+                            <a routerLink="/faq">{{ "goToFaq" | translate }}</a>
+                          </div>
+                          <div class="whatsapp">
+                            <img
+                              src="assets/themes/custom/mrkliin/img/whatsapp.svg"
+                            /><a
+                              target="_blank"
+                              href="https://wa.me/34690849277"
+                              >{{ "leaveUsAMessageOnWhatsApp" | translate }}</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>

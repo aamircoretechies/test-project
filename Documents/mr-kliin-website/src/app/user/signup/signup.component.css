@@ -1,0 +1,17 @@
+.form-item-pass {
+  position: relative;
+}
+.view-pass {
+  position: absolute;
+  right: 16px;
+  top: 34px;
+  opacity: 0.5;
+}
+.view-pass:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.form-field-accept {    color: #383737;    font-size: .8rem; display: flex; flex-direction:row;}
+.form-field-accept a{  display: inline; color:#f16759}
+.form-field-accept input[type='checkbox']{  display: inline-block !important}

@@ -1,0 +1,555 @@
+.steps {
+  display: flex;
+  background: #efefef;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.order-step {
+  width: 20%;
+  text-align: left;
+  position: relative;
+}
+.order-step {
+  opacity: 0.3;
+}
+.order-step.on {
+  opacity: 1;
+  z-index: 2;
+}
+.order-step::after {
+  content: "";
+  width: 75%;
+  height: 3px;
+  background: #4e677a;
+  position: absolute;
+  left: 20%;
+  top: 20px;
+  z-index: -1;
+}
+.order-step:last-of-type::after {
+  display: none;
+}
+
+.content-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.order {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+}
+.order td {
+  vertical-align: top;
+}
+.order table {
+  width: 100%;
+}
+.order-step h5 {
+  margin-bottom: 0;
+}
+.order-title a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #f16759;
+  text-decoration: none;
+}
+.order-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.order small {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #677788;
+  text-decoration: none;
+}
+.order .btn-primary {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+
+.btn-primary {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 2rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+  box-shadow: none;
+  border: 0;
+}
+.btn-dull {
+  text-align: center;
+  color: #666;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #ccc;
+  padding: 0.5rem 2rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+  box-shadow: none;
+  border: 0;
+}
+.products-product {
+  margin-bottom: 0 !important;
+}
+.product-info {
+  width: 100%;
+}
+hr {
+  border: 0;
+  border-top: 1px dotted #666;
+  margin: 30px 0 25px;
+  clear: both;
+}
+.view-products article {
+  margin-bottom: 0;
+}
+.cartItems {
+  width: 100%;
+}
+.cartItems p {
+  color: #032641;
+  font-weight: bold;
+  text-transform: uppercase;
+  float: left;
+  width: 100%;
+  margin: 20px 0 5px;
+}
+.cartItems table,
+.orderPricingBox table {
+  width: 100%;
+  line-height: 35px;
+}
+.cartItems table tr th {
+  text-align: left;
+  width: 80%;
+  font-weight: 500;
+}
+.cartItems table thead tr td {
+  font-weight: 500;
+}
+.cartItems table tr td {
+  width: 10%;
+}
+.orderPricingBox table tr td.price {
+  text-align: right;
+}
+.editBtn {
+  float: right;
+}
+.placeOrderBox p {
+  font-size: 14px;
+  margin: 0;
+}
+.placeOrderBox .terms {
+}
+.placeOrderBox .terms a {
+  color: #032541;
+}
+.placeOrderBtn {
+}
+.orderPricingBox {
+  clear: both;
+  margin-bottom: 30px;
+  float: left;
+  width: 100%;
+}
+.orderPricingBox article {
+  width: 45%;
+  float: left;
+}
+.orderPricingBox .couponCodebox {
+  margin-right: 15px;
+}
+.orderPricingBox .couponCodebox form {
+  display: block;
+}
+.orderPricingBox .couponCodebox .couponForm {
+  width: 100%;
+}
+.orderPricingBox .couponCodebox h1 {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+.orderPricingBox .couponCodebox .form-email {
+  display: block;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  background-clip: padding-box;
+  border: 2px solid #e7eaf3;
+  border-radius: 4px;
+  margin-left: 0;
+  color: #383737;
+  width: 95%;
+  margin: 18px 0 20px;
+}
+.orderPricingBox .couponCodebox .btn-primary {
+  border: 1px solid #032541;
+  padding: 3px 30px;
+  font-size: 13px;
+  border-radius: 100px;
+  color: #fff;
+  background: #032541;
+  outline: none;
+  line-height: 25px;
+}
+.orderPricingBox .orderSummaryBox table tr {
+  line-height: 28px;
+}
+
+/* The Modal (background) */
+.modal {
+  /*display: none;*/
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  font-size: 20px;
+  text-align: left;
+  margin: 0;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  width: 90%;
+}
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.modal-content input {
+  width: 100%;
+  border: 2px solid #e7eaf3;
+  padding: 10px 5px;
+}
+.modal-content .form-item,
+.modal-content .form-actions {
+  margin-bottom: 0;
+}
+
+/* The container */
+.custom-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 400 !important;
+}
+
+/* Hide the browser's default checkbox */
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: 1px solid #032541;
+  border-radius: 100px;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-radio input:checked ~ .checkmark {
+  background-color: #032541;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-radio .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.clone-region-mobile {
+  display: none;
+}
+
+.home-btn-orders {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .home-btn-orders {
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    z-index: 10;
+  }
+  .home-btn-orders img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .bannerheading {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .bannerheading span {
+    clear: both;
+    font-size: 18px;
+  }
+  .product-page header:after {
+    display: none;
+  }
+  .product-page header {
+    height: 128px;
+    background: #fff;
+    margin-top: 0;
+  }
+  .product-page header:before {
+    display: none;
+  }
+  .clone-region-mobile {
+    display: block;
+  }
+  .clone-region-mobile {
+    padding: 0 15px;
+  }
+  .acc-panel {
+    display: block;
+  }
+  .accordion {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+  }
+  .accordion .arrow {
+    top: 21px;
+    right: 16px;
+  }
+  .chatme {
+    display: none;
+  }
+  .crm-item {
+    display: flex;
+    background: #eae3dd;
+    border-radius: 4px;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .crm-item .name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .crm-item .price {
+    color: #032541;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .crm-item .qty {
+    display: flex;
+  }
+  .crm-item input {
+    border: 0;
+  }
+  .bottom-navs {
+    padding: 0 15px;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-seetotal {
+    background: #f16759;
+    font-size: 18px;
+    padding: 15px 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border: 0;
+    box-shadow: none;
+    border-radius: 6px;
+  }
+  .btn-seetotal img {
+    margin-left: 15px;
+  }
+  .btn-seeback {
+    background: #efecea;
+    font-size: 18px;
+    padding: 15px 15px;
+    color: 000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    box-shadow: none;
+    border-radius: 6px;
+  }
+  .btn-seeback img {
+    margin-right: 15px;
+  }
+  .btn-seeback span {
+    text-transform: uppercase;
+  }
+  .modal-content img {
+    width: 100%;
+  }
+  .view-content {
+    padding: 0 15px;
+  }
+  .views-row {
+    background: #e6e6e6;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    clear: both;
+  }
+  .views-row article {
+    background: transparent;
+  }
+  .placeOrderBox {
+    display: block;
+  }
+  .placeOrderBox.views-row {
+    padding: 12px 15px;
+  }
+  .views-row article table tr td {
+    vertical-align: top;
+  }
+  .views-row article table tr th {
+    vertical-align: top;
+  }
+}
+@media (max-width: 768px) {
+  .orderPricingBox article {
+    width: 90%;
+    padding-top: 25px;
+  }
+  .couponCodebox {
+    margin-right: 0px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+  }
+  .orderPricingBox .couponCodebox .form-email {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartItems table tr th {
+    width: 50%;
+  }
+  .cartItems table tr td {
+    width: 25%;
+  }
+  .orderPricingBox .couponCodebox .form-email {
+    width: 95%;
+  }
+  .orderPricingBox article {
+    width: 86%;
+  }
+}

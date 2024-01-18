@@ -1,0 +1,404 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <h1 class="page-title">{{ "myProfile" | translate }}</h1>
+  </header>
+
+  <!--My Profile Start-->
+  <main role="main" *ngIf="!editUser">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content" style="max-width:800px">
+        <!--Image Cropping-->
+        <div *ngIf="imageSave" class="mb-2 mobileImgBox" id="imgCrop">
+          <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="true"
+            [aspectRatio]="5 / 5"
+            [resizeToWidth]="600"
+            format="png/jpg"
+            (imageCropped)="imageCropped($event)"
+          >
+          </image-cropper>
+          <input
+            type="button"
+            class="btn btn-primary btn-sm pull-right mobileSaveBtn"
+            value="{{ 'savePicture' | translate }}"
+            (click)="uploadCropImg()"
+          />
+          <input
+            type="button"
+            class="cancelBtn"
+            value="{{ 'cancel' | translate }}"
+            (click)="cancelImageUpload()"
+          />
+        </div>
+
+        <div class="notif" *ngIf="!imageSave">
+          <div class="notif-bell">
+            <div class="user-dp">
+              <img src="{{ profile.profile_image }}" height="196" />
+            </div>
+            <!--Add Picture on Mobile-->
+            <div class="form-group addProfilePic">
+              <input
+                type="button"
+                class="form-control fileButton"
+                value="{{ 'addProfilePicture' | translate }}"
+              />
+              <input
+                type="file"
+                class="filePicker"
+                accept="image/*"
+                (change)="onFileSelect($event)"
+              />
+            </div>
+          </div>
+          <div class="notif-content">
+            <h3>
+              <b>{{ "name" | translate }}:</b> {{ profile.first_name }}
+            </h3>
+            <h3>
+              <b>{{ "email" | translate }}:</b> {{ profile.email }}
+            </h3>
+            <h3>
+              <b>{{ "phoneNumber" | translate }}: </b>
+              <span *ngIf="profile.mobile_number">{{
+                profile.mobile_number
+              }}</span>
+              <span *ngIf="!profile.mobile_number">N/A</span>
+            </h3>
+            <h3>
+              <b>{{ "gender" | translate }}: </b>
+              <span *ngIf="profile.gender == 'M'">{{
+                "male" | translate
+              }}</span>
+              <span *ngIf="profile.gender == 'F'">{{
+                "female" | translate
+              }}</span>
+              <span *ngIf="profile.gender == 'O'">{{
+                "other" | translate
+              }}</span>
+              <span *ngIf="profile.gender == ''">N/A</span>
+            </h3>
+            <h3>
+              <b>{{ "postalCode" | translate }}: </b>
+              <span *ngIf="profile.postal_code">{{ profile.postal_code }}</span>
+              <span *ngIf="!profile.postal_code">N/A</span>
+            </h3>
+            <br />
+          </div>
+        </div>
+      </div>
+
+      <!--Menu Options-->
+      <div
+        class="region region-content"
+        style="max-width:800px"
+        *ngIf="!imageSave"
+      >
+        <table class="btn-table">
+          <tr>
+            <td>
+              <button
+                class="btn-primary"
+                type="button"
+                (click)="showHideEdit('show')"
+              >
+                {{ "editProfile" | translate }}
+              </button>
+            </td>
+            <td>
+              <a routerLink="/change-password" class="btn-outline">{{
+                "changePassword" | translate
+              }}</a>
+            </td>
+            <td>
+              <a routerLink="/manage-addresses" class="btn-outline">{{
+                "manageAddresses" | translate
+              }}</a>
+            </td>
+            <td>
+              <a routerLink="/order-start" class="btn-outline">{{
+                "placeOrder" | translate
+              }}</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+
+  <!--Edit Profile Start-->
+  <div class="path-user" *ngIf="editUser">
+    <div class="page-user page-cart">
+      <main role="main">
+        <a id="main-content" tabindex="-1"></a>
+        <div class="layout-content">
+          <div class="region region-content">
+            <div
+              id="block-mrkliin-content"
+              class="block block-system block-system-main-block"
+            >
+              <form
+                class="user-register-form user-form"
+                enctype="multipart/form-data"
+                id="user-register-form"
+                [formGroup]="profileForm"
+                (ngSubmit)="onFormSubmit()"
+              >
+                <div
+                  data-drupal-selector="edit-account"
+                  id="edit-account"
+                  class="js-form-wrapper form-wrapper"
+                >
+                  <div
+                    class="js-form-item form-item js-form-type-email form-type-email js-form-item-mail form-item-mail"
+                  >
+                    <label
+                      for="edit-mail"
+                      class="js-form-required form-required"
+                      >{{ "fullName" | translate }}</label
+                    >
+                    <input
+                      type="text"
+                      class="form-email required"
+                      formControlName="name"
+                    />
+                    <!--Validation Error Message-->
+                    <div class="error-msg">
+                      <div *ngIf="name.invalid && name.touched">
+                        <small
+                          class="text-danger"
+                          *ngIf="name.errors?.required"
+                        >
+                          {{ "nameRequired" | translate }}
+                        </small>
+                        <small
+                          class="text-danger"
+                          *ngIf="name.errors?.minlength"
+                        >
+                          {{ "nameMinChar" | translate }}
+                        </small>
+                        <small
+                          class="text-danger"
+                          *ngIf="name.errors?.maxlength"
+                        >
+                          {{ "nameMaxChar" | translate }}
+                        </small>
+                        <small class="text-danger" *ngIf="name.errors?.pattern">
+                          {{ "nameValid" | translate }}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="js-form-item form-item js-form-type-email form-type-email js-form-item-mail form-item-mail"
+                  >
+                    <label class="js-form-required">{{
+                      "emailAddress" | translate
+                    }}</label>
+                    <input
+                      type="email"
+                      class="form-email"
+                      readonly
+                      formControlName="email"
+                    />
+                  </div>
+
+                  <div
+                    class="js-form-item form-item js-form-type-email form-type-email js-form-item-mail form-item-mail"
+                  >
+                    <label class="js-form-required form-required">{{
+                      "phoneNumber" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-email"
+                      formControlName="mobile_number"
+                    />
+                    <!--Validation Error Message-->
+                    <div class="error-msg">
+                      <div
+                        *ngIf="mobile_number.invalid && mobile_number.touched"
+                      >
+                        <small
+                          class="text-danger"
+                          *ngIf="mobile_number.errors?.required"
+                        >
+                          {{ "phoneRequired" | translate }}
+                        </small>
+                        <small
+                          class="text-danger"
+                          *ngIf="mobile_number.errors?.pattern"
+                        >
+                          {{ "phoneValid" | translate }}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class=""
+                  data-drupal-selector="edit-field-zip-code-wrapper"
+                  id="edit-field-zip-code-wrapper"
+                >
+                  <div
+                    class="js-form-item form-item js-form-type-select form-type-select js-form-item-field-zip-code form-item-field-zip-code"
+                  >
+                    <label
+                      for="edit-field-zip-code"
+                      class="js-form-required "
+                      >{{ "gender" | translate }}</label
+                    >
+                    <select
+                      class="form-select required"
+                      formControlName="gender"
+                    >
+                      <option value=""
+                        >- {{ "selectAValue" | translate }} -</option
+                      >
+                      <option value="M">{{ "male" | translate }}</option>
+                      <option value="F">{{ "female" | translate }}</option>
+                      <option value="O">{{ "other" | translate }}</option>
+                    </select>
+                    <!--Validation Error Message-->
+                    <div class="error-msg">
+                      <div *ngIf="gender.invalid && gender.touched">
+                        <small
+                          class="text-danger"
+                          *ngIf="gender.errors?.required"
+                        >
+                          {{ "genderSelectError" | translate }}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class=""
+                  data-drupal-selector="edit-field-zip-code-wrapper"
+                  id="edit-field-zip-code-wrapper"
+                >
+                  <div
+                    class="js-form-item form-item js-form-type-select form-type-select js-form-item-field-zip-code form-item-field-zip-code"
+                  >
+                    <label
+                      for="edit-field-zip-code"
+                      class="js-form-required form-required"
+                      >{{ "postalCode" | translate }}</label
+                    >
+                    <select
+                      class="form-select required"
+                      formControlName="postal_code"
+                    >
+                      <option value=""
+                        >- {{ "selectAValue" | translate }} -</option
+                      >
+                      <option
+                        *ngFor="let pc of myapp.postalCodes"
+                        value="{{ pc.postal_code }}"
+                        >{{ pc.postal_code }}</option
+                      >
+                    </select>
+                    <!--Validation Error Message-->
+                    <div class="error-msg">
+                      <div *ngIf="postal_code.invalid && postal_code.touched">
+                        <small
+                          class="text-danger"
+                          *ngIf="postal_code.errors?.required"
+                        >
+                          {{ "postalSelectError" | translate }}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Profile Picture-->
+                <div
+                  class="js-form-item form-item js-form-type-email form-type-email js-form-item-mail form-item-mail profilePicBox"
+                  style="position:relative"
+                >
+                  <label class="js-form-required">{{
+                    "profilePicture" | translate
+                  }}</label>
+                  <input
+                    type="file"
+                    class="form-email"
+                    accept="image/*"
+                    (change)="onFileSelect($event)"
+                  />
+                  <img src="{{ imgPreviewPath }}" class="profilePic" />
+                </div>
+
+                <!--Image Cropping-->
+                <div *ngIf="imageSave" class="mb-2" id="imgCrop">
+                  <image-cropper
+                    [imageChangedEvent]="imageChangedEvent"
+                    [maintainAspectRatio]="true"
+                    [aspectRatio]="5 / 5"
+                    [resizeToWidth]="600"
+                    format="png/jpg"
+                    (imageCropped)="imageCropped($event)"
+                  >
+                  </image-cropper>
+                  <input
+                    type="button"
+                    class="btn btn-primary btn-sm pull-right"
+                    value="{{ 'savePicture' | translate }}"
+                    (click)="saveCropImg()"
+                  />
+                </div>
+
+                <div
+                  data-drupal-selector="edit-actions"
+                  class="form-actions js-form-wrapper form-wrapper"
+                  id="edit-actions"
+                >
+                  <input
+                    type="button"
+                    value="{{ 'cancel' | translate }}"
+                    class="button button--primary js-form-submit form-submit"
+                    (click)="showHideEdit('hide')"
+                  />
+                  <input
+                    type="submit"
+                    id="edit-submit"
+                    value="{{ 'updateProfile' | translate }}"
+                    class="button button--primary js-form-submit form-submit"
+                    [disabled]="profileForm.invalid"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-insert"></div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<!--Slider Start-->
+<div id="myModal" class="modal" *ngIf="showSlider && user_login_attempt == 0">
+  <div class="modal-content">
+    <span class="close" (click)="hideSliderPopup()">&times;</span>
+    <ng-image-slider
+      [images]="sliderImages"
+      [infinite]="true"
+      [imagePopup]="false"
+      [manageImageRatio]="true"
+      [arrowKeyMove]="true"
+      [autoSlide]="0.2"
+      [animationSpeed]="0.1"
+      [imageSize]="{ width: '100%', height: '100%' }"
+      slideImage="1"
+      #nav
+    ></ng-image-slider>
+  </div>
+</div>
+<!--Slider End-->

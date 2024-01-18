@@ -1,0 +1,29 @@
+.product-info {
+  width: 100%;
+}
+
+.order-further {
+  padding: 0 15px;
+}
+.cart-empty-page .empty-cart-image img {
+  width: 75px;
+  height: 75px;
+}
+.home-btn-orders {
+  display: none;
+}
+@media (max-width: 768px) {
+  .home-btn-orders {
+    display: inline-block;
+    position: absolute;
+    top: -60px;
+    left: 15px;
+    z-index: 10;
+  }
+  .home-btn-orders img{height:40px;
+    width:40px;}
+
+  .product-page header {
+    height: 130px;
+  }
+}

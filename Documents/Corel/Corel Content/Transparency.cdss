@@ -1,0 +1,162 @@
+{
+  "version": 1700,
+  "transparency": {
+    "05-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.05"
+    },
+    "10-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.10"
+    },
+    "15-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.15"
+    },
+    "20-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.20"
+    },
+    "25-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.25"
+    },
+    "30-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.30"
+    },
+    "35-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.35"
+    },
+    "40-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.40"
+    },
+    "45-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.45"
+    },
+    "50-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.50"
+    },
+    "55-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.55"
+    },
+    "60-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.60"
+    },
+    "65-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.65"
+    },
+    "70-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.70"
+    },
+    "75-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.75"
+    },
+    "80-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.80"
+    },
+    "85-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.85"
+    },
+    "90-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.90"
+    },
+    "95-Percent": {
+      "fill": {
+        "type": "1"
+      },
+      "uniformTransparency": "0.95"
+    },
+    "ConicalFountain": {
+      "fill": {
+        "type": "2",
+        "primaryAlpha": "198",
+        "secondaryAlpha": "51",
+        "intermediateColors": [
+        ],
+        "fountainType": "3",
+        "numSteps": "256"
+      }
+    },
+    "LinearFountain": {
+      "fill": {
+        "type": "2",
+        "primaryAlpha": "188",
+        "secondaryAlpha": "48",
+        "intermediateColors": [
+        ],
+        "numSteps": "256"
+      }
+    },
+    "RadialFountain": {
+      "fill": {
+        "type": "2",
+        "primaryAlpha": "193",
+        "secondaryAlpha": "91",
+        "intermediateColors": [
+        ],
+        "fountainType": "2",
+        "numSteps": "256"
+      }
+    },
+    "SqaureFountain": {
+      "fill": {
+        "type": "2",
+        "primaryAlpha": "206",
+        "secondaryAlpha": "84",
+        "intermediateColors": [
+        ],
+        "fountainType": "4",
+        "numSteps": "256"
+      }
+    }
+  }
+}

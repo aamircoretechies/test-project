@@ -1,0 +1,78 @@
+.priceListPage .page-title {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+.priceBox {
+  border: 1px solid #ddd;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.priceBox h1 {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 10px 0;
+  color: #032541;
+}
+.priceBox .table {
+  width: 100%;
+  max-width: 100%;
+  background: #f7f8fa;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 0 0 10px 10px;
+}
+.priceBox .table > tbody > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: middle;
+  border-top: 1px solid #ddd;
+}
+.priceBox .table tbody tr td img {
+  border: 0;
+  width: 30px;
+  background: #eeeeee;
+  padding: 5px;
+  border-radius: 110px;
+  height: 30px;
+  float: left;
+}
+.priceBox .table tbody tr td .itemname {
+  float: left;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.priceBox .table tbody tr td .price {
+  color: #032541;
+  font-weight: bold;
+}
+.nomargin {
+  margin: 6px !important;
+}
+.btnBox {
+  border: none;
+  text-align: center;
+}
+
+.priceBox .btn {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 1em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  .priceBox {
+    margin: auto 20px 40px;
+  }
+}
+@media (max-width: 480px) {
+}

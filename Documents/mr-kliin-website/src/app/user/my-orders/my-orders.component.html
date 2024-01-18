@@ -1,0 +1,175 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <h1>{{ "myOrders" | translate }}</h1>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content">
+        <div class="content-head">
+          <h4>{{ "myOrders" | translate }}</h4>
+          <div
+            class="js-form-item form-item js-form-type-password form-type-password js-form-item-pass-pass1 form-item-pass-pass1 password-parent"
+          >
+            <form [formGroup]="filterForm" class="filterForm">
+              <!--<div class="field">
+                <input
+                  type="date"
+                  class="form-text filterOpt"
+                  (change)="filterOrders()"
+                  formControlName="order_date"
+                />
+              </div>-->
+
+              <div class="field">
+                <select
+                  class="filterOpt"
+                  (change)="filterOrders()"
+                  formControlName="month"
+                >
+                  <option value="">{{ "month" | translate }}</option>
+                  <option value="">{{ "all" | translate }}</option>
+                  <option *ngFor="let m of months" value="{{ m }}">{{
+                    m
+                  }}</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <select
+                  class="filterOpt"
+                  (change)="filterOrders()"
+                  formControlName="order_status"
+                >
+                  <option value="">{{ "allOrders" | translate }}</option>
+                  <option value="1">{{ "active" | translate }}</option>
+                  <option value="2">{{ "delivered" | translate }}</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr />
+        <br /><br />
+
+        <!--Orders listing start-->
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <div class="order" *ngFor="let o of orders; index as i">
+            <table>
+              <tr>
+                <td>
+                  <h3 class="order-title">
+                    <a routerLink="../order-detail/{{ o.order_number }}"
+                      >Order #{{ o.order_number }}
+                    </a>
+                  </h3>
+                  <small>{{ api.convertToDateTime(o.created_at, "") }}</small
+                  ><br />
+                  <h4>
+                    {{ "pickupAddress" | translate }}:
+                    {{ o.contact_person_name }}, {{ o.mobile_number }} -
+                    {{ o.complete_address }},
+                    {{ o.pin_code }}
+                  </h4>
+                </td>
+                <td>
+                  <a
+                    routerLink="../order-detail/{{ o.order_number }}"
+                    class="btn btn-lg btn-primary btn-sm mt-1"
+                    >{{ "viewOrder" | translate }}</a
+                  >
+                </td>
+              </tr>
+            </table>
+
+            <!-- status, If order not cancelled-->
+            <div class="steps" *ngIf="o.status != 9">
+              <div class="order-step" [class.on]="o.order_status[0]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "placed" | translate }}</h5>
+              </div>
+
+              <div class="order-step" [class.on]="o.order_status[1]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "pickedUp" | translate }}</h5>
+              </div>
+
+              <div class="order-step" [class.on]="o.order_status[2]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "deliveredToLaundry" | translate }}</h5>
+              </div>
+
+              <!--<div class="order-step" [class.on]="o.order_status[4]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">In Process</h5>
+              </div>
+              <div class="order-step" [class.on]="o.order_status[5]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">Dropoff Assigned</h5>
+              </div>-->
+
+              <div class="order-step" [class.on]="o.order_status[3]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "readyToDeliver" | translate }}</h5>
+              </div>
+
+              <div class="order-step" [class.on]="o.order_status[4]">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "delivered" | translate }}</h5>
+              </div>
+            </div>
+
+            <!-- status, If order cancelled-->
+            <div class="steps" *ngIf="o.status == 9">
+              <div class="order-step on">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "placed" | translate }}</h5>
+              </div>
+
+              <div class="order-step on">
+                <img
+                  src="assets/themes/custom/mrkliin/img/step.png"
+                  height="42"
+                />
+                <h5 class="mt-1">{{ "cancelled" | translate }}</h5>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!orders.length" class="noRecordFound">
+            No record found!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>

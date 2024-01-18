@@ -1,0 +1,89 @@
+<div class="path-node  product-page page-products path-products priceListPage">
+  <header role="banner">
+    <h1 class="page-title">
+      {{ "priceList" | translate }} <br />
+      <span>{{ "individualItems" | translate }}</span>
+    </h1>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <article
+            data-history-node-id="5"
+            role="article"
+            about="/how-it-works"
+            typeof="schema:WebPage"
+            class="node node--type-page node--view-mode-full"
+          >
+            <div class="node__content">
+              <div
+                class="field field--name-field-paragraphs-ba field--type-entity-reference-revisions field--label-hidden field__items"
+              >
+                <!--Price list start-->
+                <div class="priceList">
+                  <div class="field__item">
+                    <div
+                      class="priceBox"
+                      *ngFor="let os of otherServices; index as serviceIndex"
+                    >
+                      <h1>
+                        <span *ngIf="this.myapp.activeLang == 'en'">
+                          {{ os.service_name }}
+                        </span>
+                        <span *ngIf="this.myapp.activeLang == 'es'">
+                          {{ os.service_name_spanish }}
+                        </span>
+                      </h1>
+                      <table class="table">
+                        <tbody>
+                          <tr *ngFor="let i of os.items; index as itemIndex">
+                            <td>
+                              <img
+                                src="{{ i.item_image }}"
+                                draggable="false"
+                                *ngIf="i.item_image"
+                              />
+                              <span
+                                class="itemname"
+                                [class.nomargin]="!i.item_image"
+                                *ngIf="this.myapp.activeLang == 'en'"
+                                >{{ i.item_name }}</span
+                              >
+                              <span
+                                class="itemname"
+                                [class.nomargin]="!i.item_image"
+                                *ngIf="this.myapp.activeLang == 'es'"
+                                >{{ i.item_name_spanish }}</span
+                              >
+                            </td>
+                            <td>
+                              <span class="price">{{ i.price }} €</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="priceBox btnBox">
+                      <a class="btn" routerLink="/order-start">{{
+                        "orderNow" | translate
+                      }}</a>
+                    </div>
+                  </div>
+                </div>
+                <!--Price list end-->
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>

@@ -1,0 +1,122 @@
+.steps {
+  display: flex;
+  background: #efefef;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.order-step {
+      text-align: center;
+    position: relative;
+    padding: 0 35px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.order-step {
+  opacity: 0.3;
+}
+.order-step.on {
+  opacity: 1;
+  z-index: 2;
+}
+.order-step::after {
+      content: "";
+    width: 93%;
+    height: 3px;
+    background: #4e677a;
+    position: absolute;
+   
+    top: 20px;
+    z-index: -1;
+}
+.order-step:last-of-type::after {
+  display: none;
+}
+
+.content-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.order {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.order td {
+  vertical-align: top;
+}
+.order table {
+  width: 100%;
+}
+.order-step h5 {
+  margin-bottom: 0;
+}
+.order-title a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #f16759;
+  text-decoration: none;
+}
+.order-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.order small {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #677788;
+  text-decoration: none;
+}
+.order .btn-primary {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+.product-page .region-content {
+  display: block;
+}
+.filterForm {
+  display: flex;
+}
+.filterForm .field {
+  margin: 0 5px;
+}
+.filterForm .field .filterOpt {
+  padding: 0 10px;
+  border: 2px solid #e7eaf3;
+  margin-left: 10px;
+  height: 35px;
+  font-size: 14px;
+  line-height: 30px;
+  border-radius: 5px;
+}
+.filterForm .field select.filterOpt {
+  height: 39px;
+}
+
+@media screen and (max-width: 992px){
+main{padding: 0 15px}
+.steps{
+    display: flex;
+    margin-bottom: 10px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;}
+
+.order-step{padding:10px 0; display: flex; height: 62px; min-height: 40px;}
+.order-step h5{margin-top: 13px;    margin-left: 15px;}
+.order-step::after{    width: 3px;    height: 43%;    top: 48px;    left: 20px;}
+}

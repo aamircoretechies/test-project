@@ -1,0 +1,623 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <h1 class="bannerheading">
+      {{ "prepareYourOrder" | translate }} <br />
+      <span class="hide-mobile">{{ "prepareYourOrderSubHeading" | translate }}</span>
+    </h1>
+  </header>
+
+  <main role="main">
+    <div class="layout-content">
+      <div class="region region-content">
+        <div class="goorder-steps">
+          <div class="step in">
+            <span>1</span>
+            <p>{{ "prepareYourOrder" | translate }}</p>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <p>{{ "scheduleYourOrder" | translate }}</p>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <p>{{ "reviewYourOrder" | translate }}</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <p>{{ "payment" | translate }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="region region-content hide-mobile">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+          style="margin-right: 15px"
+        >
+          <div class="views-element-container">
+            <div
+              class="view view-products view-id-products view-display-id-page_1 js-view-dom-id-dc277f45751f041c4e5eb77fae0f195c16af825b5ea427724919cd6bb31e95eb"
+            >
+              <div class="view-content">
+                <!--Bags Start-->
+                <div class="views-row">
+                  <!--*ngFor="let b of bags; index as itemIndex"-->
+                  <!--Large Bag-->
+                  <article class="products-product">
+                    <div
+                      class="product-img-left"
+                      style="background-image: url('assets/sites/default/files/bags/l.png')"
+                    ></div>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden field__item"
+                      >
+                        {{ "washFold-Large" | translate }} 63x83cm
+                      </div>
+                      <div
+                        class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"
+                      >
+                        <p>
+                          {{ "washFold-LargeInfo" | translate }}
+                        </p>
+                        <ul>
+                          <li>{{ "washFold-P1" | translate }}</li>
+                          <li>
+                            {{ "washFold-P2" | translate }}
+                          </li>
+                          <li>{{ "washFold-P3" | translate }}</li>
+                          <li>{{ "washFold-P4" | translate }}</li>
+                        </ul>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div
+                        class="field field--name-variations field--type-entity-reference field--label-hidden field__items"
+                      >
+                        <div class="field__item">
+                          <div
+                            style="display:flex; background:#efefef; border-radius:6px; padding: 0 15px; margin-top:15px"
+                          >
+                            <div
+                              class="field field--name-title field--type-string field--label-hidden field__item field__item-2"
+                            >
+                              {{ "washFold-Large" | translate }}
+                            </div>
+                            <div
+                              class="field field--name-price field--type-commerce-price field--label-hidden field__item"
+                            >
+                              {{ bags[1].price }} €
+                            </div>
+                            <form class="" id="largeForm">
+                              <div
+                                data-drupal-selector="edit-actions"
+                                class="form-actions js-form-wrapper form-wrapper"
+                                id="edit-actions--2"
+                              >
+                                <button
+                                  class="button--add-to-cart qtyUpDownBtn"
+                                  type="button"
+                                  (click)="decreaseQty(0, 1)"
+                                >
+                                  -
+                                </button>
+                                <input
+                                  type="text"
+                                  class="form-number cartItemQty"
+                                  readonly
+                                  [value]="getQuantity(0, 1, bags[1].item_id)"
+                                />
+
+                                <button
+                                  class="button--add-to-cart qtyUpDownBtn"
+                                  type="button"
+                                  (click)="increaseQty(0, 1)"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <!--Medium Bag-->
+                  <article class="products-product">
+                    <div
+                      class="product-img-left"
+                      style="background-image: url('assets/sites/default/files/bags/m.png')"
+                    ></div>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden field__item"
+                      >
+                        {{ "washFold-Medium" | translate }} 53x73cm
+                      </div>
+                      <div
+                        class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"
+                      >
+                        <p>
+                          {{ "washFold-MediumInfo" | translate }}
+                        </p>
+                        <ul>
+                          <li>{{ "washFold-Medium-P1" | translate }}</li>
+                          <li>{{ "washFold-Medium-P2" | translate }}</li>
+                          <li>{{ "washFold-Medium-P3" | translate }}</li>
+                        </ul>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div
+                        class="field field--name-variations field--type-entity-reference field--label-hidden field__items"
+                      >
+                        <div class="field__item">
+                          <div
+                            style="display:flex; background:#efefef; border-radius:6px; padding: 0 15px; margin-top:15px"
+                          >
+                            <div
+                              class="field field--name-title field--type-string field--label-hidden field__item field__item-2"
+                            >
+                              {{ "washFold-MediumInfo" | translate }}
+                            </div>
+                            <div
+                              class="field field--name-price field--type-commerce-price field--label-hidden field__item"
+                            >
+                              {{ bags[0].price }} €
+                            </div>
+                            <form class="" id="mediumForm">
+                              <div
+                                data-drupal-selector="edit-actions"
+                                class="form-actions js-form-wrapper form-wrapper"
+                                id="edit-actions--2"
+                              >
+                                <button
+                                  class="button--add-to-cart qtyUpDownBtn"
+                                  type="button"
+                                  (click)="decreaseQty(0, 0)"
+                                >
+                                  -
+                                </button>
+                                <input
+                                  type="text"
+                                  class="form-number cartItemQty"
+                                  readonly
+                                  [value]="getQuantity(0, 0, bags[0].item_id)"
+                                />
+
+                                <button
+                                  class="button--add-to-cart qtyUpDownBtn"
+                                  type="button"
+                                  (click)="increaseQty(0, 0)"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="faq-acc-panel">
+                  <!--Item serivces Start-->
+                  <div class="views-row product-dry-cleaning itemsWindow">
+                    <article
+                      *ngFor="let os of otherServices; index as serviceIndex"
+                    >
+                      <button
+                        class="accordion"
+                        (click)="showHideItems(serviceIndex)"
+                      >
+                        <span *ngIf="this.myapp.activeLang == 'en'">
+                          {{ os.service_name }}
+                        </span>
+                        <span *ngIf="this.myapp.activeLang == 'es'">
+                          {{ os.service_name_spanish }}
+                        </span>
+                        <span
+                          class="arrow"
+                          [class.arrow-up]="activeTabIndex == serviceIndex"
+                          [class.arrow-down]="activeTabIndex != serviceIndex"
+                        ></span>
+                      </button>
+                      <div class="product-info">
+                        <!--<div
+                          class="field field--name-title field--type-string field--label-hidden "
+                        >
+                          {{ os.service_name }}
+                        </div>-->
+
+                        <div
+                          class="itemsContent clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden"
+                          *ngIf="
+                            activeTabIndex == serviceIndex && serviceIndex == 0
+                          "
+                        >
+                          <p>
+                            {{ "cleanPress-GarmentBagInfo" | translate }}
+                          </p>
+                          <p>
+                            {{ "cleanPress-GarmentBagP1" | translate }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div
+                        class="field field--name-variations field--type-entity-reference field--label-hidden field__items"
+                        *ngIf="activeTabIndex == serviceIndex"
+                      >
+                        <div
+                          class="field__item field__item-border"
+                          *ngFor="let i of os.items; index as itemIndex"
+                        >
+                          <div>
+                            <div
+                              class="field field--name-field-product-image field--type-image field--label-hidden field__item"
+                              *ngIf="i.item_image"
+                            >
+                              <img
+                                class="image-style-thumbnail"
+                                src="{{ i.item_image }}"
+                              />
+                            </div>
+                            <div
+                              class="field field--name-title field--type-string field--label-hidden field__item"
+                            >
+                              <span *ngIf="this.myapp.activeLang == 'en'">{{ i.item_name }}</span>
+                              <span *ngIf="this.myapp.activeLang == 'es'">{{ i.item_name_spanish }}</span>
+                            </div>
+                            <div
+                              class="field field--name-price field--type-commerce-price field--label-hidden field__item"
+                            >
+                              {{ i.price }} €
+                            </div>
+                          </div>
+                          <form
+                            class="commerce-order-item-variation-cart-form-form-commerce-product-variation-4 commerce-order-item-variation-cart-form-form"
+                            id="commerce-order-item-variation-cart-form-form-commerce-product-variation-4--2"
+                          >
+                            <div
+                              data-drupal-selector="edit-actions"
+                              class="form-actions js-form-wrapper form-wrapper"
+                              id="edit-actions--6"
+                            >
+                              <button
+                                class="use-ajax qtyUpDownBtn"
+                                type="button"
+                                (click)="
+                                  decreaseQty(serviceIndex + 1, itemIndex)
+                                "
+                              >
+                                -
+                              </button>
+                              <input
+                                type="text"
+                                readonly
+                                [value]="
+                                  getQuantity(
+                                    serviceIndex + 1,
+                                    itemIndex,
+                                    i.item_id
+                                  )
+                                "
+                                class="form-number cartItemQty"
+                              />
+                              <button
+                                class="use-ajax qtyUpDownBtn"
+                                type="button"
+                                (click)="
+                                  increaseQty(serviceIndex + 1, itemIndex)
+                                "
+                              >
+                                +
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Cart Summary Starts-->
+        <div
+          id="block-ordertotalblock"
+          class="block block-block-content block-block-content5e378e87-db2a-49b7-84fb-e2796a68cd83 block-orderblock"
+        >
+          <h3>{{ "summary" | translate }}</h3>
+
+          <!--Empty Cart info start-->
+          <div class="empty-summary" *ngIf="cartTotalAmt == 0">
+            <img src="assets/themes/custom/mrkliin/img/sad.svg" />
+            <h4>{{ "summaryEmptyP1" | translate }}</h4>
+            <p>{{ "summaryEmptyP2" | translate }}</p>
+          </div>
+          <!--Empty Cart info end-->
+
+          <!--Cart items start-->
+          <div
+            class="cartItems"
+            style="min-width: 328px"
+            *ngIf="cartTotalAmt > 0"
+          >
+            <table class="headingTable">
+              <thead>
+                <tr>
+                  <th>{{ "item" | translate }}</th>
+                  <td>{{ "qty" | translate }}</td>
+                  <td>{{ "price" | translate }}</td>
+                </tr>
+              </thead>
+            </table>
+            <div *ngFor="let cart of cartItems; index as c">
+              <p *ngIf="checkServiceItemExist(c)">
+                <span *ngIf="this.myapp.activeLang == 'en'">{{
+                  cart.serviceName
+                }}</span>
+                <span *ngIf="this.myapp.activeLang == 'es'">{{
+                  cart.serviceNameSpanish
+                }}</span>
+              </p>
+              <table style="width: 100%">
+                <tr *ngFor="let ci of cart.items; index as i">
+                  <th>
+                    <span *ngIf="this.myapp.activeLang == 'en'">{{
+                      ci.itemName
+                    }}</span>
+                    <span *ngIf="this.myapp.activeLang == 'es'">{{
+                      ci.itemNameSpanish
+                    }}</span>
+                    <span
+                      *ngIf="ci.itemName == 'Large' || ci.itemName == 'Medium'"
+                    >
+                      {{ "bag" | translate }}</span
+                    >
+                  </th>
+                  <td>{{ ci.qty }}</td>
+                  <td>
+                    {{ ci.price }} €
+                    <span
+                      class="delteIemIcon"
+                      (click)="removeItemFromCart(c, i)"
+                      >x</span
+                    >
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="view-footer" *ngIf="cartTotalAmt > 0">
+            <a href="#" (click)="redirectToNextPage()">
+              {{ "continue" | translate }}
+              <span>{{ cartTotalAmt }} €</span>
+            </a>
+          </div>
+          <!--Cart items end-->
+
+          <div class="cartBelowBox" *ngIf="cartTotalAmt > 0">
+            <button type="button" (click)="clearCart()">
+              {{ "clearAll" | translate }}
+            </button>
+            <p class="minimumReq">
+              <span *ngIf="validOrderAmt">{{
+                "summaryTerm1" | translate
+              }}</span>
+              <span *ngIf="!validOrderAmt" class="largeMinOrder"
+                >{{ "summaryTerm1" | translate }}
+              </span>
+              <br />
+              {{ "summaryTerm2" | translate }}<br />
+              {{ "summaryTerm3" | translate }}
+            </p>
+          </div>
+        </div>
+        <!--Cart Summary Ends-->
+      </div>
+      
+      <!-- clone region mobile starts -->
+      <div class="clone-region-mobile">
+          <!-- 1 -->
+          <button class="accordion"><img src="assets/images/Wash & Fold.png" style="height: 42px; margin-right: 15px"> Wash & Fold<span class="arrow"></span> </button>   
+          <div class="acc-panel faq-acc-panel">
+              <div class="crm-item">
+                  <span class="name">Large bag</span>
+                  <span class="price">&euro; 50</span>
+                  <div class="form-actions js-form-wrapper form-wrapper qty" data-drupal-selector="edit-actions" id="edit-actions--2">
+                      <button  class="button--add-to-cart qtyUpDownBtn" type="button"> - </button>
+                      <input class="form-number cartItemQty" readonly="" type="text" value="0">
+                      <button class="button--add-to-cart qtyUpDownBtn" type="button"> + </button>
+                  </div>
+              </div>
+              <div class="crm-item">
+                  <span class="name">Medium bag</span>
+                  <span class="price">&euro; 30</span>
+                  <div class="form-actions js-form-wrapper form-wrapper qty" data-drupal-selector="edit-actions" id="edit-actions--2">
+                      <button  class="button--add-to-cart qtyUpDownBtn" type="button"> - </button>
+                      <input class="form-number cartItemQty" readonly="" type="text" value="0">
+                      <button class="button--add-to-cart qtyUpDownBtn" type="button"> + </button>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- 2 -->
+          <button class="accordion"><img src="assets/images/Clean & Press.png" style="height: 42px; margin-right: 15px"> Clean & Press<span class="arrow"></span> </button>   
+          <div class="acc-panel faq-acc-panel">
+              <div class="crm-item">
+                  <img src="assets/images/shirt.png" style="height:40px; ">
+                  <span class="name">Shirt</span>
+                  <span class="price">&euro; 6</span>
+                  <div class="form-actions js-form-wrapper form-wrapper qty" data-drupal-selector="edit-actions" id="edit-actions--2">
+                      <button  class="button--add-to-cart qtyUpDownBtn" type="button"> - </button>
+                      <input class="form-number cartItemQty" readonly="" type="text" value="0">
+                      <button class="button--add-to-cart qtyUpDownBtn" type="button"> + </button>
+                  </div>
+              </div>
+              <div class="crm-item">
+                  <img src="assets/images/sweater.png" style="height:40px; ">
+                  <span class="name">Sweater</span>
+                  <span class="price">&euro; 7</span>
+                  <div class="form-actions js-form-wrapper form-wrapper qty" data-drupal-selector="edit-actions" id="edit-actions--2">
+                      <button  class="button--add-to-cart qtyUpDownBtn" type="button"> - </button>
+                      <input class="form-number cartItemQty" readonly="" type="text" value="0">
+                      <button class="button--add-to-cart qtyUpDownBtn" type="button"> + </button>
+                  </div>
+              </div>
+              <div class="crm-item">
+                  <img src="assets/images/trousers.png" style="height:40px; ">
+                  <span class="name">Trousers</span>
+                  <span class="price">&euro; 7</span>
+                  <div class="form-actions js-form-wrapper form-wrapper qty" data-drupal-selector="edit-actions" id="edit-actions--2">
+                      <button  class="button--add-to-cart qtyUpDownBtn" type="button"> - </button>
+                      <input class="form-number cartItemQty" readonly="" type="text" value="0">
+                      <button class="button--add-to-cart qtyUpDownBtn" type="button"> + </button>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- 3 -->
+          <button class="accordion"><img src="assets/images/Household.png" style="height: 42px; margin-right: 15px"> Household<span class="arrow"></span> </button>   
+          <div class="acc-panel faq-acc-panel">
+          </div>
+          
+          <!-- 4 -->
+          <button class="accordion"><img src="assets/images/Extras.png" style="height: 42px; margin-right: 15px"> Extras<span class="arrow"></span> </button>   
+          <div class="acc-panel faq-acc-panel">
+          </div>
+          
+          
+          <!-- see total button -->
+          <div class="bottom-navs-full" *ngIf="!showSummary">
+            <button class="btn btn-seetotal-full">
+                <span>See Total</span>
+                <span>&euro;0.00</span>
+                <img src="assets/images/chevron.png">
+            </button>
+          </div>
+              
+          <!--Cart Summary Starts-->
+          <div class="region region-content" *ngIf="showSummary">
+            <div
+              id="block-ordertotalblock"
+              class="  block block-block-content block-block-content5e378e87-db2a-49b7-84fb-e2796a68cd83 block-orderblock"
+            >
+              <h3>{{ "summary" | translate }}</h3>
+
+              <!--Empty Cart info start-->
+              <div class="empty-summary" *ngIf="cartTotalAmt == 0">
+                <img src="assets/themes/custom/mrkliin/img/sad.svg" />
+                <h4>{{ "summaryEmptyP1" | translate }}</h4>
+                <p>{{ "summaryEmptyP2" | translate }}</p>
+              </div>
+              <!--Empty Cart info end-->
+
+              <!--Cart items start-->
+              <div
+                class="cartItems"
+                style="min-width: 328px"
+                *ngIf="cartTotalAmt > 0"
+              >
+                <table class="headingTable">
+                  <thead>
+                    <tr>
+                      <th>{{ "item" | translate }}</th>
+                      <td>{{ "qty" | translate }}</td>
+                      <td>{{ "price" | translate }}</td>
+                    </tr>
+                  </thead>
+                </table>
+                <div *ngFor="let cart of cartItems; index as c">
+                  <p *ngIf="checkServiceItemExist(c)">
+                    <span *ngIf="this.myapp.activeLang == 'en'">{{
+                      cart.serviceName
+                    }}</span>
+                    <span *ngIf="this.myapp.activeLang == 'es'">{{
+                      cart.serviceNameSpanish
+                    }}</span>
+                  </p>
+                  <table style="width: 100%">
+                    <tr *ngFor="let ci of cart.items; index as i">
+                      <th>
+                        <span *ngIf="this.myapp.activeLang == 'en'">{{
+                          ci.itemName
+                        }}</span>
+                        <span *ngIf="this.myapp.activeLang == 'es'">{{
+                          ci.itemNameSpanish
+                        }}</span>
+                        <span
+                          *ngIf="ci.itemName == 'Large' || ci.itemName == 'Medium'"
+                        >
+                          {{ "bag" | translate }}</span
+                        >
+                      </th>
+                      <td>{{ ci.qty }}</td>
+                      <td>
+                        {{ ci.price }} €
+                        <span
+                          class="delteIemIcon"
+                          (click)="removeItemFromCart(c, i)"
+                          >x</span
+                        >
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="view-footer cart-total" *ngIf="cartTotalAmt > 0">
+                <span>
+                  {{ "Total" | translate }}   </span>
+                  <span class="total">{{ cartTotalAmt }} €</span>
+            
+              </div>
+              <div class="view-footer" *ngIf="cartTotalAmt > 0">
+                <a href="#" (click)="redirectToNextPage()">
+                  {{ "Total" | translate }}
+                  <span>{{ cartTotalAmt }} €</span>
+                </a>
+              </div>
+              <!--Cart items end-->
+
+              <div class="cartBelowBox" *ngIf="cartTotalAmt > 0">
+              
+                <p class="minimumReq">
+                  <span *ngIf="validOrderAmt">{{
+                    "summaryTerm1" | translate
+                  }}</span>
+                  <span *ngIf="!validOrderAmt" class="largeMinOrder"
+                    >{{ "summaryTerm1" | translate }}
+                  </span>
+                  <br />
+                  {{ "summaryTerm2" | translate }}<br />
+                  {{ "summaryTerm3" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--Cart Summary Ends-->
+
+          <!-- Back and Continue button -->
+          <div class="clone-region-mobile" *ngIf="showSummary">
+              <div class="bottom-navs">
+                <button class="btn btn-seeback">
+                    <img src="assets/images/chevron-l.png">
+                    <span>Back to Items</span>
+                </button>
+                <button class="btn btn-seetotal">
+                    <span>Continue</span>
+                    <img src="assets/images/chevron.png">
+                </button>
+              </div>
+          </div>
+      </div>
+      <!-- clone region mobile ends -->
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>
+
+ 

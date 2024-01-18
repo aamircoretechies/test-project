@@ -1,0 +1,355 @@
+<div class="path-user">
+  <div class="page-user page-cart">
+    <header role="banner">
+      <div class="region region-header">
+        <div
+          id="block-mrkliin-page-title"
+          class="block block-core block-page-title-block"
+        >
+          <h1 class="page-title">{{ "createNewAccount" | translate }}</h1>
+        </div>
+        <div
+          id="block-mrkliin-primary-local-tasks"
+          class="block block-core block-local-tasks-block"
+        >
+          <nav class="tabs" role="navigation" aria-label="Tabs">
+            <h2 class="visually-hidden">Primary tabs</h2>
+            <ul class="tabs primary">
+              <li>
+                {{ "alreadyHaveAccount" | translate }}
+                <a
+                  routerLink="/login"
+                  data-drupal-link-system-path="user/login"
+                  >{{ "loginHere" | translate }}</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          id="block-mrkliin-breadcrumbs"
+          class="block block-system block-system-breadcrumb-block"
+        >
+          <nav
+            class="breadcrumb"
+            role="navigation"
+            aria-labelledby="system-breadcrumb"
+          >
+            <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+            <ol>
+              <li>
+                <a routerLink="/">Home</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div data-drupal-messages-fallback class="hidden"></div>
+      </div>
+    </header>
+
+    <main role="main">
+      <a id="main-content" tabindex="-1"></a>
+      <div class="layout-content">
+        <div class="region region-content">
+          <div
+            id="block-mrkliin-content"
+            class="block block-system block-system-main-block"
+          >
+            <form
+              class="user-register-form user-form"
+              enctype="multipart/form-data"
+              id="user-register-form"
+              [formGroup]="signupForm"
+              (ngSubmit)="onFormSubmit()"
+            >
+              <div
+                data-drupal-selector="edit-account"
+                id="edit-account"
+                class="js-form-wrapper form-wrapper"
+              >
+                <div
+                  class="js-form-item form-item js-form-type-email form-type-email js-form-item-mail form-item-mail"
+                >
+                  <label for="edit-mail" class="js-form-required form-required"
+                    >Full Name</label
+                  >
+                  <input
+                    data-drupal-selector="edit-mail"
+                    aria-describedby="edit-mail--description"
+                    type="text"
+                    class="form-email required"
+                    formControlName="name"
+                  />
+                  <!--Validation Error Message-->
+                  <div class="error-msg">
+                    <div *ngIf="name.invalid && name.touched">
+                      <small class="text-danger" *ngIf="name.errors?.required">
+                        {{ "nameRequired" | translate }}
+                      </small>
+                      <small class="text-danger" *ngIf="name.errors?.minlength">
+                        {{ "nameValid" | translate }}
+                      </small>
+                      <small class="text-danger" *ngIf="name.errors?.maxlength">
+                        {{ "nameMaxChar" | translate }}
+                      </small>
+                      <small class="text-danger" *ngIf="name.errors?.pattern">
+                        {{ "nameValid" | translate }}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="js-form-item form-item js-form-type-email form-type-email js-form-item-mail form-item-mail"
+                >
+                  <label
+                    for="edit-mail"
+                    class="js-form-required form-required"
+                    >{{ "emailAddress" | translate }}</label
+                  >
+                  <input
+                    type="email"
+                    id="edit-mail"
+                    class="form-email required"
+                    formControlName="email"
+                  />
+                  <!--Validation Error Message-->
+                  <div class="error-msg">
+                    <div *ngIf="email.invalid && email.touched">
+                      <small class="text-danger" *ngIf="email.errors?.required">
+                        {{ "emailRequired" | translate }}
+                      </small>
+                      <small class="text-danger" *ngIf="email.errors?.email">
+                        {{ "emailValid" | translate }}
+                      </small>
+                      <small
+                        class="text-danger"
+                        *ngIf="email.errors?.minlength"
+                      >
+                        {{ "emailMinChar" | translate }}
+                      </small>
+                      <small
+                        class="text-danger"
+                        *ngIf="email.errors?.maxlength"
+                      >
+                        {{ "emailMaxChar" | translate }}
+                      </small>
+                    </div>
+                  </div>
+                  <div id="edit-mail--description" class="description">
+                    {{ "emailSubHeading" | translate }}
+                  </div>
+                </div>
+
+                <div id="edit-pass" class="">
+                  <div
+                    class="js-form-item form-item js-form-type-password form-type-password js-form-item-pass-pass1 form-item-pass-pass1  form-item-pass"
+                  >
+                    <span
+                      class="view-pass pass-hidden"
+                      (click)="showHidePassword()"
+                      ><img src="./assets/images/{{ eyeIcon }}"
+                    /></span>
+                    <label
+                      for="edit-pass-pass1"
+                      class="js-form-required form-required"
+                      >{{ "password" | translate }}</label
+                    >
+                    <input
+                      class="password-field js-password-field form-text required"
+                      autocomplete="new-password"
+                      type="{{ inputType }}"
+                      id="edit-pass-pass1"
+                      formControlName="password"
+                    />
+                    <!--Validation Error Message-->
+                    <div class="error-msg">
+                      <div *ngIf="password.invalid && password.touched">
+                        <small
+                          class="text-danger"
+                          *ngIf="password.errors?.required"
+                        >
+                          {{ "passwordRequired" | translate }}
+                        </small>
+                        <small
+                          class="text-danger"
+                          *ngIf="password.errors?.minlength"
+                        >
+                          {{ "passwordMinChar" | translate }}
+                        </small>
+
+                        <small
+                          class="text-danger"
+                          *ngIf="password.errors?.pattern"
+                        >
+                          {{ "passwordFormat" | translate }}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="js-form-item form-item js-form-type-password form-type-password js-form-item-pass-pass2 form-item-pass-pass2  form-item-pass"
+                  >
+                    <span
+                      class="view-pass pass-hidden"
+                      (click)="showHidePassword2()"
+                      ><img src="./assets/images/{{ eyeIcon2 }}"
+                    /></span>
+                    <label
+                      for="edit-pass-pass2"
+                      class="js-form-required form-required"
+                      >{{ "confirmPassword" | translate }}</label
+                    >
+                    <input
+                      class="password-confirm js-password-confirm form-text required"
+                      autocomplete="new-password"
+                      type="{{ inputType2 }}"
+                      id="edit-pass-pass2"
+                      formControlName="conf_pass"
+                    />
+                    <!--Validation Error Message-->
+                    <div class="error-msg">
+                      <div *ngIf="conf_pass.invalid && conf_pass.touched">
+                        <small
+                          class="text-danger"
+                          *ngIf="conf_pass.errors?.required"
+                        >
+                          {{ "confPasswordRequired" | translate }}
+                        </small>
+                      </div>
+                      <small class="text-danger" *ngIf="isPasswordMatch">
+                        {{ "passwordConfPasswordMatch" | translate }}
+                      </small>
+                    </div>
+                    <div id="edit-pass--description" class="description">
+                      {{ "passwordSubHeading" | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <details
+                class="visually-hidden js-form-wrapper form-wrapper"
+                data-drupal-selector="edit-contact"
+                id="edit-contact"
+                open="open"
+              >
+                <summary
+                  role="button"
+                  aria-controls="edit-contact"
+                  aria-expanded="true"
+                  aria-pressed="true"
+                  >Contact settings</summary
+                >
+                <div class="details-wrapper">
+                  <div
+                    class="js-form-item form-item js-form-type-checkbox form-type-checkbox js-form-item-contact form-item-contact"
+                  >
+                    <input
+                      data-drupal-selector="edit-contact"
+                      aria-describedby="edit-contact--2--description"
+                      type="checkbox"
+                      id="edit-contact--2"
+                      name="contact"
+                      value="1"
+                      checked="checked"
+                      class="form-checkbox"
+                    />
+                    <label for="edit-contact--2" class="option"
+                      >Personal contact form</label
+                    >
+                    <div id="edit-contact--2--description" class="description">
+                      Allow other users to contact you via a personal contact
+                      form which keeps your email address hidden. Note that some
+                      privileged users such as site administrators are still
+                      able to contact you even if you choose to disable this
+                      feature.
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <div
+                class=""
+                data-drupal-selector="edit-field-zip-code-wrapper"
+                id="edit-field-zip-code-wrapper"
+              >
+                <div
+                  class="js-form-item form-item js-form-type-select form-type-select js-form-item-field-zip-code form-item-field-zip-code"
+                >
+                  <label
+                    for="edit-field-zip-code"
+                    class="js-form-required form-required"
+                    >{{ "postalCode" | translate }}</label
+                  >
+                  <select
+                    class="form-select required"
+                    formControlName="postal_code"
+                  >
+                    <option value=""
+                      >- {{ "selectAValue" | translate }} -</option
+                    >
+                    <option
+                      *ngFor="let pc of myapp.postalCodes"
+                      value="{{ pc.postal_code }}"
+                      >{{ pc.postal_code }}</option
+                    >
+                  </select>
+                  <!--Validation Error Message-->
+                  <div class="error-msg">
+                    <div *ngIf="postal_code.invalid && postal_code.touched">
+                      <small
+                        class="text-danger"
+                        *ngIf="postal_code.errors?.required"
+                      >
+                        {{ "postalSelectError" | translate }}
+                      </small>
+                    </div>
+                  </div>
+                  <div
+                    id="edit-field-zip-code--description"
+                    class="description"
+                  >
+                    {{ "postalCodeSubHeading" | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="js-form-item form-item form-field-accept">
+                <input
+                  type="checkbox"
+                  value="1"
+                  formControlName="privacy"
+                />&nbsp; {{ "registerTerms" | translate }}&nbsp;
+                <a routerLink="../terms">{{ "terms" | translate }}</a> &nbsp; &
+                &nbsp;
+                <a routerLink="../privacy-policy">{{ "policy" | translate }}</a>
+              </div>
+
+              <!--Validation Error Message-->
+              <div class="error-msg">
+                <div *ngIf="privacy.invalid && privacy.touched">
+                  <small class="text-danger" *ngIf="privacy.errors?.required">
+                    {{ "fieldSelectError" | translate }}
+                  </small>
+                </div>
+              </div>
+
+              <div
+                data-drupal-selector="edit-actions"
+                class="form-actions js-form-wrapper form-wrapper"
+                id="edit-actions"
+              >
+                <input
+                  type="submit"
+                  id="edit-submit"
+                  value="{{ 'createNewAccount' | translate }}"
+                  class="button button--primary js-form-submit form-submit"
+                  [disabled]="signupForm.invalid"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-insert"></div>
+    </main>
+  </div>
+</div>

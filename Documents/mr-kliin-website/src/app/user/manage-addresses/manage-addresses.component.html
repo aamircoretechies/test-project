@@ -1,0 +1,235 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <h1 class="page-title">{{ "addressBook" | translate }}</h1>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content" style="max-width:700px">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <ul class="notiList">
+            <li *ngFor="let add of address; index as i">
+              <p>
+                {{ add.contact_person_name }}, {{ add.mobile_number }} -
+                {{ add.complete_address }}, {{ add.pin_code }}
+              </p>
+              <span
+                *ngIf="add.address_type == 'pickup'"
+                class="badge success"
+                >{{ "pickup" | translate }}</span
+              >
+              <span
+                *ngIf="add.address_type == 'dropoff'"
+                class="badge primary"
+                >{{ "dropoff" | translate }}</span
+              >
+              <span *ngIf="add.address_type == 'both'" class="badge info">{{
+                "pickupDropoff" | translate
+              }}</span>
+              <button
+                type="button"
+                (click)="editAddress(i)"
+                class="btn btn-add"
+              >
+                {{ "edit" | translate }}
+              </button>
+              &nbsp;
+              <button
+                type="button"
+                (click)="deleteAddress(add.address_id, i)"
+                class="btn btn-add"
+              >
+                {{ "delete" | translate }}
+              </button>
+            </li>
+          </ul>
+          <div *ngIf="!address.length" class="noRecordFound">
+            No record found! Please add an address
+          </div>
+          <div class="clear"><br /></div>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="myBtn"
+            (click)="showHideAddressForm()"
+          >
+            + {{ "addNew" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>
+
+<!-- Address Modal content -->
+<div id="myModal" class="modal" *ngIf="addAddress">
+  <div class="modal-content">
+    <span class="close" (click)="showHideAddressForm()">&times;</span>
+    <h2>
+      <span *ngIf="addEdit">{{ "addNewAddress" | translate }}</span>
+      <span *ngIf="!addEdit">{{ "editAddress" | translate }}</span>
+    </h2>
+    <form [formGroup]="addForm" (ngSubmit)="onFormSubmit()">
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "contactPersonName" | translate
+        }}</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="contact_person_name"
+        />
+      </div>
+      <!--Validation Error Message-->
+      <div class="error-msg">
+        <div *ngIf="contact_person_name.invalid && contact_person_name.touched">
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.required"
+          >
+            {{ "nameRequired" | translate }}
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.minlength"
+          >
+            {{ "nameMinChar" | translate }}
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.maxlength"
+          >
+            {{ "nameMaxChar" | translate }}
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.pattern"
+          >
+            {{ "nameValid" | translate }}
+          </small>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "phoneNumber" | translate
+        }}</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="mobile_number"
+        />
+        <!--Validation Error Message-->
+        <div class="error-msg">
+          <div *ngIf="mobile_number.invalid && mobile_number.touched">
+            <small class="text-danger" *ngIf="mobile_number.errors?.required">
+              {{ "phoneRequired" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="mobile_number.errors?.minlength">
+              {{ "phoneMinChar" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="mobile_number.errors?.maxlength">
+              {{ "phoneMaxChar" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="mobile_number.errors?.pattern">
+              {{ "phoneValid" | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "postalCode" | translate
+        }}</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="postal_code"
+        />
+        <!--Validation Error Message-->
+        <div class="error-msg">
+          <div *ngIf="postal_code.invalid && postal_code.touched">
+            <small class="text-danger" *ngIf="postal_code.errors?.required">
+              {{ "postalRequired" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="postal_code.errors?.minlength">
+              {{ "postalMinChar" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="postal_code.errors?.maxlength">
+              {{ "postalMaxChar" | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "fullAddress" | translate
+        }}</label>
+        <textarea
+          formControlName="complete_address"
+          class="form-text required"
+        ></textarea>
+        <!--Validation Error Message-->
+        <div class="error-msg">
+          <div *ngIf="complete_address.invalid && complete_address.touched">
+            <small
+              class="text-danger"
+              *ngIf="complete_address.errors?.required"
+            >
+              {{ "addressRequired" | translate }}
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="complete_address.errors?.minlength"
+            >
+              {{ "addressMinChar" | translate }}
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="complete_address.errors?.maxlength"
+            >
+              {{ "addressMaxChar" | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "pickupDropoffHeading" | translate
+        }}</label>
+        <select formControlName="address_type" class="form-text required">
+          <option value="both">{{ "pickupDropoff" | translate }}</option>
+          <option value="pickup">{{ "pickup" | translate }}</option>
+          <option value="dropoff">{{ "dropoff" | translate }}</option>
+        </select>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="addForm.invalid"
+      >
+        {{ "save" | translate }}
+      </button>
+    </form>
+  </div>
+</div>

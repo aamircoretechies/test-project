@@ -1,0 +1,33 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <a class="home-btn-orders" routerLink="/"
+      ><img src="assets/images/home.svg"
+    /></a>
+    <h1>{{ "thankYou" | translate }}</h1>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <div class="cart-empty-page">
+            <div class="empty-cart-image">
+              <img src="assets/themes/custom/mrkliin/img/like.png" />
+            </div>
+            <h2>{{ "congratulations" | translate }}</h2>
+            <div class="subtitle">{{ "thankYouSubHeading" | translate }}</div>
+            <a routerLink="/my-orders">{{ "goToOrders" | translate }}</a>
+            <br />
+            <p style="color:#f16759" class="order-further">
+              {{ "weWillPickupYourClothsOn" | translate }} {{ pickupMsg }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

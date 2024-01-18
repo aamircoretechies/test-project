@@ -1,0 +1,739 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <a class="home-btn-orders" routerLink="/"
+      ><img src="assets/images/home.svg"
+    /></a>
+    <h1 class="bannerheading">{{ "scheduleYourOrder" | translate }} <br /></h1>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content">
+        <div class="goorder-steps">
+          <div class="step in done">
+            <span>1</span>
+            <p>{{ "prepareYourOrder" | translate }}</p>
+          </div>
+          <div class="step in">
+            <span>2</span>
+            <p>{{ "scheduleYourOrder" | translate }}</p>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <p>{{ "reviewYourOrder" | translate }}</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <p>{{ "payment" | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="region region-content" style="max-width:700px">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <form
+            class="user-pass"
+            id="user-pass"
+            [formGroup]="orderForm"
+            (ngSubmit)="onOrderSubmit()"
+          >
+            <!--Pickup Address Start-->
+            <!--<mat-form-field appearance="fill">
+              <mat-label>Different locale</mat-label>
+              <input matInput [matDatepicker]="dp" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="dp"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #dp></mat-datepicker>
+            </mat-form-field>
+            <button type="button" (click)="french()">Switch to French</button>
+            Link: https://material.angular.io/components/datepicker/overview
+            -->
+
+            <div
+              class="addressWindow js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+            >
+              <h2 class="heading">{{ "pickup" | translate }}</h2>
+              <div class="pickupDate">
+                <label for="edit-name" class="js-form-required form-required">{{
+                  "date" | translate
+                }}</label>
+                <!--<input
+                  type="date"
+                  id="edit-name"
+                  class="form-text required"
+                  formControlName="pickup_date"
+                  [min]="todayDate"
+                />-->
+                <mat-form-field>
+                  <input
+                    matInput
+                    [matDatepicker]="myDatepicker2"
+                    [matDatepickerFilter]="dropoffDateFilter"
+                    [min]="minDate"
+                    class="form-text form-control form-control-filter"
+                    formControlName="pickup_date"
+                    (dateChange)="getTiming($event, 'pickup')"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="myDatepicker2"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div class="pickupTime">
+                <label class="js-form-required form-required">{{
+                  "time" | translate
+                }}</label>
+                <select formControlName="pickup_time">
+                  <option value="">{{ "selectATime" | translate }}</option>
+                  <option
+                    *ngFor="let pt of pickupTiming"
+                    value="{{ pt.shift }}"
+                  >
+                    {{ pt.time }}
+                  </option>
+                </select>
+              </div>
+
+              <!--Validation Error Message-->
+              <div class="error-msg">
+                <div *ngIf="pickup_date.invalid && pickup_date.touched">
+                  <small
+                    class="text-danger"
+                    *ngIf="pickup_date.errors?.required"
+                  >
+                    {{ "pickupDateTimeRequired" | translate }}
+                  </small>
+                </div>
+              </div>
+
+              <!--Address list start-->
+              <div class="pickupAddressLis">
+                <p>
+                  <b class="js-form-required form-required">{{
+                    "addresses" | translate
+                  }}</b>
+                </p>
+                <label
+                  class="custom-radio"
+                  *ngFor="let add of pickupAddress; index as pi"
+                >
+                  {{ add.contact_person_name }} ({{ add.mobile_number }}) -
+                  {{ add.complete_address }}, {{ add.pin_code }}
+                  <input
+                    type="radio"
+                    formControlName="pickup_address_id"
+                    value="{{ add.address_id }}"
+                    (click)="hidePickupForm()"
+                    id="add_{{ add.address_id }}"
+                    [checked]="add.address_id == pickup_address_id.value"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <!--Validation Error Message-->
+                <div class="error-msg">
+                  <div
+                    *ngIf="
+                      pickup_address_id.invalid && pickup_address_id.touched
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="pickup_address_id.errors?.required"
+                    >
+                      {{ "pickupAddressRequired" | translate }}
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="!pickupAddress.length" class="noRecordFound">
+                {{ "noPickupAddressFound" | translate }}
+              </div>
+              <div class="clear"><br /></div>
+
+              <button
+                type="button"
+                class="btn btn-add"
+                id="myBtn"
+                (click)="showPickupForm()"
+              >
+                {{ "addNew" | translate }} +
+              </button>
+            </div>
+
+            <div class="pickupDropoffAlert">
+              <p>
+                <img src="assets/images/info.png" draggable="false" /><span>{{
+                  "pickupDropoffAlert" | translate
+                }}</span>
+              </p>
+            </div>
+
+            <!--Dropoff Address Start-->
+            <div
+              class="addressWindow js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+            >
+              <h2 class="heading">{{ "dropoff" | translate }}</h2>
+              <div class="pickupDate dropoffDate">
+                <label for="edit-name" class="js-form-required form-required">{{
+                  "date" | translate
+                }}</label>
+                <mat-form-field>
+                  <input
+                    matInput
+                    [matDatepicker]="myDatepicker"
+                    [matDatepickerFilter]="pickupDateFilter"
+                    [min]="minDate"
+                    class="form-text form-control form-control-filter"
+                    formControlName="dropoff_date"
+                    (dateChange)="getTiming($event, 'dropoff')"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="myDatepicker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #myDatepicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div class="pickupTime">
+                <label class="js-form-required form-required">{{
+                  "time" | translate
+                }}</label>
+                <select formControlName="dropoff_time">
+                  <option value="">{{ "selectATime" | translate }}</option>
+                  <option
+                    *ngFor="let dt of dropoffTiming"
+                    value="{{ dt.shift }}"
+                  >
+                    {{ dt.time }}
+                  </option>
+                </select>
+              </div>
+
+              <!--<label for="edit-name" class="js-form-required form-required"
+                >Dropoff Date/Time</label
+              >
+              <div style="display:flex">
+                <input
+                  type="date"
+                  id="edit-name"
+                  class="form-text required"
+                  formControlName="dropoff_date"
+                />
+                &nbsp;
+                <select class="form-control" formControlName="dropoff_time">
+                  <option value="morning">Morning (9:30 - 13:00)</option>
+                  <option value="afternoon">Afternoon (17:00 - 21:00)</option>
+                </select>
+              </div>-->
+
+              <!--Validation Error Message-->
+              <div class="error-msg">
+                <div *ngIf="dropoff_date.invalid && dropoff_date.touched">
+                  <small
+                    class="text-danger"
+                    *ngIf="dropoff_date.errors?.required"
+                  >
+                    {{ "dropoffDateTimeRequired" | translate }}
+                  </small>
+                </div>
+              </div>
+
+              <div class="pickupAddressLis">
+                <p>
+                  <b class="js-form-required form-required">{{
+                    "addresses" | translate
+                  }}</b>
+                </p>
+                <label
+                  class="custom-radio"
+                  *ngFor="let add of dropoffAddress; index as pi"
+                >
+                  {{ add.contact_person_name }} ({{ add.mobile_number }}) -
+                  {{ add.complete_address }}, {{ add.pin_code }}
+                  <input
+                    type="radio"
+                    formControlName="dropoff_address_id"
+                    value="{{ add.address_id }}"
+                    id="add_{{ add.address_id }}"
+                    [checked]="add.address_id == dropoff_address_id.value"
+                  />
+                  <!--(click)="hideDropoffForm()"-->
+                  <span class="checkmark"></span>
+                </label>
+
+                <!--Validation Error Message-->
+                <div class="error-msg">
+                  <div
+                    *ngIf="
+                      dropoff_address_id.invalid && dropoff_address_id.touched
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="dropoff_address_id.errors?.required"
+                    >
+                      {{ "dropoffAddressRequired" | translate }}
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="!dropoffAddress.length" class="noRecordFound">
+                {{ "noDropoffAddressFound" | translate }}
+              </div>
+              <div class="clear"><br /></div>
+
+              <button
+                type="button"
+                class="btn btn-add"
+                id="myBtn"
+                (click)="showPickupForm()"
+              >
+                {{ "addNew" | translate }} +
+              </button>
+            </div>
+
+            <!--Payment Option Start-->
+            <!--<div
+            class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+          >
+            <label for="edit-name" class="js-form-required form-required"
+              >Payment</label
+            >
+            <label class="custom-radio">
+              Card
+              <input type="radio" name="payment" />
+              <span class="checkmark"></span>
+            </label>
+            <div class="clear"><br /></div>
+            <label class="custom-radio">
+              Cash On Delivery
+              <input type="radio" name="payment" />
+              <span class="checkmark"></span>
+            </label>
+          </div>-->
+
+            <!--Special Notes Start-->
+            <div
+              class="addressWindow js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+            >
+              <label for="edit-name" class=""
+                >{{ "specialInstructions" | translate }}
+                <span style="color: #888; font-size: 12px">{{
+                  "specialInstructionsSubHeading" | translate
+                }}</span></label
+              >
+              <textarea
+                class="form-text"
+                formControlName="customer_note"
+                rows="3"
+              ></textarea>
+              <!--Validation Error Message-->
+              <div class="error-msg">
+                <div *ngIf="customer_note.invalid && customer_note.touched">
+                  <small
+                    class="text-danger"
+                    *ngIf="customer_note.errors?.minlength"
+                  >
+                    {{ "instructionMinChar" | translate }}
+                  </small>
+                  <small
+                    class="text-danger"
+                    *ngIf="customer_note.errors?.maxlength"
+                  >
+                    {{ "instructionMaxChar" | translate }}
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div
+              data-drupal-selector="edit-actions"
+              class="form-actions js-form-wrapper form-wrapper hide-mobile "
+              id="edit-actions"
+            >
+              <a routerLink="../order-start" class="btn-primary backBtn">{{
+                "back" | translate
+              }}</a>
+              <input
+                type="submit"
+                id="edit-submit"
+                value="{{ 'saveContinue' | translate }}"
+                class="button js-form-submit form-submit"
+                [disabled]="orderForm.invalid"
+              />
+            </div>
+
+            <!--Mobile layout buttons start-->
+            <div class="clone-region-mobile">
+              <div class="bottom-navs">
+                <a routerLink="../order-start" class="btn btn-seeback">
+                  <img src="assets/images/chevron-l.png" />
+                  <span>{{ "back" | translate }}</span>
+                </a>
+                <button
+                  class="btn btn-seetotal"
+                  type="submit"
+                  [disabled]="orderForm.invalid"
+                >
+                  <span>{{ "continue" | translate }}</span>
+                  <img src="assets/images/chevron.png" />
+                </button>
+              </div>
+            </div>
+            <!--Mobile layout buttons end-->
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>
+
+<!-- Pickup Address Modal content -->
+<div id="myModal" class="modal" *ngIf="showPickupAddressForm">
+  <div class="modal-content">
+    <span class="close" (click)="hidePickupForm()">&times;</span>
+    <h2>{{ "addNewAddress" | translate }}</h2>
+    <form [formGroup]="addFormPickup" (ngSubmit)="onAddressFormSubmitPickup()">
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "contactPersonName" | translate
+        }}</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="contact_person_name"
+        />
+      </div>
+      <!--Validation Error Message-->
+      <div class="error-msg">
+        <div *ngIf="contact_person_name.invalid && contact_person_name.touched">
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.required"
+          >
+            {{ "nameRequired" | translate }}
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.minlength"
+          >
+            {{ "nameMinChar" | translate }}
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.maxlength"
+          >
+            {{ "nameMaxChar" | translate }}
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name.errors?.pattern"
+          >
+            {{ "nameValid" | translate }}
+          </small>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "phoneNumber" | translate
+        }}</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="mobile_number"
+        />
+        <!--Validation Error Message-->
+        <div class="error-msg">
+          <div *ngIf="mobile_number.invalid && mobile_number.touched">
+            <small class="text-danger" *ngIf="mobile_number.errors?.required">
+              {{ "phoneRequired" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="mobile_number.errors?.minlength">
+              {{ "phoneMinChar" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="mobile_number.errors?.maxlength">
+              {{ "phoneMaxChar" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="mobile_number.errors?.pattern">
+              {{ "phoneValid" | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "postalCode" | translate
+        }}</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="postal_code"
+        />
+        <!--Validation Error Message-->
+        <div class="error-msg">
+          <div *ngIf="postal_code.invalid && postal_code.touched">
+            <small class="text-danger" *ngIf="postal_code.errors?.required">
+              {{ "postalRequired" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="postal_code.errors?.minlength">
+              {{ "postalMinChar" | translate }}
+            </small>
+            <small class="text-danger" *ngIf="postal_code.errors?.maxlength">
+              {{ "postalMaxChar" | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "fullAddress" | translate
+        }}</label>
+        <textarea
+          formControlName="complete_address"
+          class="form-text required"
+        ></textarea>
+        <!--Validation Error Message-->
+        <div class="error-msg">
+          <div *ngIf="complete_address.invalid && complete_address.touched">
+            <small
+              class="text-danger"
+              *ngIf="complete_address.errors?.required"
+            >
+              {{ "addressRequired" | translate }}
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="complete_address.errors?.minlength"
+            >
+              {{ "addressMinChar" | translate }}
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="complete_address.errors?.maxlength"
+            >
+              {{ "addressMaxChar" | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">{{
+          "addressType" | translate
+        }}</label>
+        <select formControlName="address_type" class="form-text required">
+          <option value="both">{{ "pickupDropoff" | translate }}</option>
+          <option value="pickup">{{ "pickup" | translate }}</option>
+          <option value="dropoff">{{ "dropoff" | translate }}</option>
+        </select>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="addFormPickup.invalid"
+      >
+        {{ "save" | translate }}
+      </button>
+    </form>
+  </div>
+</div>
+
+<!--Error Modal-->
+<div id="myModal" class="modal errorModal" *ngIf="showErrorModal">
+  <div class="modal-content">
+    <span class="close" (click)="hideErrorModal()">&times;</span>
+    <img
+      style="min-height: 150px"
+      alt="{{ errorMessage }}"
+      src="assets/images/popups/{{ errorImage }}"
+      (click)="hideErrorModal()"
+    />
+
+    <button class="gotItBtn btn-primary" (click)="hideErrorModal()">
+      Got It
+    </button>
+  </div>
+</div>
+<!--Slider End-->
+
+<!-- Dropoff Address Modal content -->
+<!--<div id="myModal" class="modal" *ngIf="showDropoffAddressForm">
+  <div class="modal-content">
+    <span class="close" (click)="hideDropoffForm()">&times;</span>
+    <h2>Add new dropoff address</h2>
+    <form
+      [formGroup]="addFormDropoff"
+      (ngSubmit)="onAddressFormSubmitDropoff()"
+    >
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required"
+          >Contact Person Name</label
+        >
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="contact_person_name_d"
+        />
+      </div>
+
+      <div class="error-msg">
+        <div
+          *ngIf="contact_person_name_d.invalid && contact_person_name_d.touched"
+        >
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name_d.errors?.required"
+          >
+            Name is required
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name_d.errors?.minlength"
+          >
+            Name must be 3 characters long
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name_d.errors?.maxlength"
+          >
+            Name can't exceed 50 characters
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="contact_person_name_d.errors?.pattern"
+          >
+            Please enter valid name
+          </small>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">Phone Number</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="mobile_number_d"
+        />
+
+        <div class="error-msg">
+          <div *ngIf="mobile_number_d.invalid && mobile_number_d.touched">
+            <small class="text-danger" *ngIf="mobile_number_d.errors?.required">
+              Phone Number is required
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="mobile_number_d.errors?.minlength"
+            >
+              Phone Number must be 8 digit long
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="mobile_number_d.errors?.maxlength"
+            >
+              Phone Number can't exceed 10 digit
+            </small>
+            <small class="text-danger" *ngIf="mobile_number_d.errors?.pattern">
+              Only digits are allowed
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">Postal Code</label>
+        <input
+          type="text"
+          class="form-text required"
+          formControlName="postal_code_d"
+        />
+
+        <div class="error-msg">
+          <div *ngIf="postal_code_d.invalid && postal_code_d.touched">
+            <small class="text-danger" *ngIf="postal_code_d.errors?.required">
+              Postal code is required
+            </small>
+            <small class="text-danger" *ngIf="postal_code_d.errors?.minlength">
+              Postal code must be 3 characters long
+            </small>
+            <small class="text-danger" *ngIf="postal_code_d.errors?.maxlength">
+              Postal code can't exceed 10 digit
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-name form-item-name"
+      >
+        <label class="js-form-required form-required">Full Address</label>
+        <textarea
+          formControlName="complete_address_d"
+          class="form-text required"
+        ></textarea>
+
+        <div class="error-msg">
+          <div *ngIf="complete_address_d.invalid && complete_address_d.touched">
+            <small
+              class="text-danger"
+              *ngIf="complete_address_d.errors?.required"
+            >
+              Address is required
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="complete_address_d.errors?.minlength"
+            >
+              Address must be 3 characters long
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="complete_address_d.errors?.maxlength"
+            >
+              Address can't exceed 500 digit
+            </small>
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="addFormDropoff.invalid"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>-->

@@ -1,0 +1,344 @@
+.steps {
+  display: flex;
+  background: #efefef;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.order-step {
+  width: 20%;
+  text-align: left;
+  position: relative;
+}
+.order-step {
+  opacity: 0.3;
+}
+.order-step.on {
+  opacity: 1;
+  z-index: 2;
+}
+.order-step::after {
+  content: "";
+  width: 75%;
+  height: 3px;
+  background: #4e677a;
+  position: absolute;
+  left: 20%;
+  top: 20px;
+  z-index: -1;
+}
+.order-step:last-of-type::after {
+  display: none;
+}
+
+.content-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.order {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+}
+.order td {
+  vertical-align: top;
+}
+.order table {
+  width: 100%;
+}
+.order-step h5 {
+  margin-bottom: 0;
+}
+.order-title a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #f16759;
+  text-decoration: none;
+}
+.order-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.order small {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #677788;
+  text-decoration: none;
+}
+.order .btn-primary {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+
+.dropbtn {
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 40px;
+  right: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.notif {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 10px;
+}
+.notif .notif-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.notif .notif-content h3 a {
+  color: #f16759;
+  text-decoration: none;
+  font-weight: 700;
+}
+.notif .notif-content {
+  padding-left: 25px;
+}
+.notif .notif-content small {
+  opacity: 0.6;
+}
+.btn-primary {
+  box-shadow: none;
+  border: 0;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+.btn-outline {
+  box-shadow: none;
+  border: 1px solid #f16759;
+  text-align: center;
+  color: #f16759;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: transparent;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+.user-form input[type="file"] {
+  width: auto;
+}
+.profilePic {
+  width: 47px;
+  height: 47px;
+  position: absolute;
+  border-radius: 5px;
+  top: 22px;
+  right: 3px;
+}
+.hide {
+  display: none;
+}
+.btn-table tr td {
+  padding: 0 5px;
+}
+
+/*Slider CSS Start*/
+/* The Modal (background) */
+.modal {
+  /*display: none;*/
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 0px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*Slider CSS End*/
+
+.user-dp {
+  width: 196px;
+  height: 196px;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0px 0px 0px 1px #ddd;
+}
+.notif-bell {
+  position: relative;
+}
+.mobileImgBox {
+  float: left;
+  width: auto;
+  padding: 10px;
+  margin-bottom: 250px;
+}
+.addProfilePic {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: none;
+}
+.fileButton {
+  color: #222;
+  border: 1px solid #06091b;
+  background: no-repeat;
+  border-radius: 120px;
+  padding: 4px 10px;
+  font-size: 14px;
+}
+.filePicker {
+  top: 1px;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  left: 5px;
+}
+.mobileSaveBtn {
+  float: left;
+}
+.cancelBtn {
+  color: #383737;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 2px solid #e7eaf3;
+  float: left;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+  margin-top: 0.7em;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .notif {
+    flex-direction: column;
+  }
+  .btn-table {
+    display: block;
+    padding: 0 15px;
+  }
+  .btn-table tr {
+    display: block;
+    width: 100%;
+  }
+  .btn-table td {
+    display: block;
+    width: 100%;
+    padding: 0 !important;
+  }
+  .btn-table td button {
+    display: block;
+    width: 100%;
+  }
+  .user-dp {
+    margin-left: 25px;
+    margin-bottom: 20px;
+    width: 156px;
+    height: 156px;
+  }
+  .user-dp img {
+    width: 100%;
+    height: 100%;
+  }
+  .addProfilePic {
+    display: block;
+  }
+  .profilePicBox {
+    display: none;
+  }
+  .modal-content {
+    height: 780px;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    height: 380px;
+  }
+}

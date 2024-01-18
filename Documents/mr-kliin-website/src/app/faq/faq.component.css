@@ -1,0 +1,17 @@
+.arrow-up {
+  background-image: url("../../assets/themes/custom/mrkliin/css/arrow-up.png");
+}
+.arrow-down {
+  background-image: url("../../assets/themes/custom/mrkliin/css/arrow.png");
+}
+.accordion {
+  margin-bottom: 10px;
+}
+table.inpage-table {
+  width: 100%;
+}
+table.inpage-table tr th,
+table.inpage-table tr td {
+  border: 1px solid #ccc;
+  padding: 0 10px;
+}

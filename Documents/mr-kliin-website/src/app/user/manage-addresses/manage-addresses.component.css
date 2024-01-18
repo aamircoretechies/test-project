@@ -1,0 +1,380 @@
+.steps {
+  display: flex;
+  background: #efefef;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.order-step {
+  width: 20%;
+  text-align: left;
+  position: relative;
+}
+.order-step {
+  opacity: 0.3;
+}
+.order-step.on {
+  opacity: 1;
+  z-index: 2;
+}
+.order-step::after {
+  content: "";
+  width: 75%;
+  height: 3px;
+  background: #4e677a;
+  position: absolute;
+  left: 20%;
+  top: 20px;
+  z-index: -1;
+}
+.order-step:last-of-type::after {
+  display: none;
+}
+
+.content-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.order {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+}
+.order td {
+  vertical-align: top;
+}
+.order table {
+  width: 100%;
+}
+.order-step h5 {
+  margin-bottom: 0;
+}
+.order-title a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #f16759;
+  text-decoration: none;
+}
+.order-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.order small {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #677788;
+  text-decoration: none;
+}
+.order .btn-primary {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 0.75rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+}
+
+.custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #f16759;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* The container */
+.custom-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 400 !important;
+}
+
+/* Hide the browser's default checkbox */
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-radio input:checked ~ .checkmark {
+  background-color: #f16759;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-radio .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.btn-add {
+  border: 1px solid #f16759;
+  border-radius: 4px;
+  color: #f16759;
+  padding: 5px 10px;
+  display: inline-block;
+  background: transparent;
+  width: auto !important;
+  font-size: 13px;
+  max-width: 128px;
+  float: right;
+  margin-left: 5px;
+}
+.btn-add:hover {
+  color: #fff;
+  background: #f16759;
+}
+
+/* The Modal (background) */
+.modal {
+  /*display: none;*/
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type="date"] {
+  min-width: 200px;
+}
+.btn-primary {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #f16759;
+  padding: 0.5rem 2rem;
+  display: block;
+  border-radius: 5px;
+  min-width: fit-content;
+  margin-top: 0.7em;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.8;
+  box-shadow: none;
+  border: 0;
+}
+textarea {
+  border: 2px solid #e7eaf3;
+  min-height: 150px;
+  resize: none;
+  width: 100%;
+}
+.modal-content h2 {
+  font-size: 16px;
+  text-align: left;
+  margin: 0;
+  padding-bottom: 0px;
+  text-transform: uppercase;
+  width: 90%;
+}
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.modal-content input {
+  width: 100%;
+  border: 2px solid #e7eaf3;
+  padding: 6px 0px;
+}
+.modal-content select{padding:0.4rem 1rem !important}
+.modal-content .form-item,
+.modal-content .form-actions {
+  margin-bottom: 10px;
+}
+.notiList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.notiList li {
+  padding: 15px;
+  border-bottom: 1px solid #e7eaf3;
+}
+.notiList li p {
+  font-size: 16px;
+  color: #222222;
+  margin-top: 0;
+}
+.badge {
+  display: inline;
+  padding: 3px 5px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+.success {
+  background-color: #5cb85c;
+}
+.primary {
+  background-color: #337ab7;
+}
+.info {
+  background-color: #5bc0de;
+}
+
+@media (max-width: 991px) {
+    .modal-content .form-item,
+.modal-content .form-actions {
+  margin-bottom: 0px;
+}
+  #myBtn {
+    margin-left: 15px;
+  }
+  textarea {
+    min-height: 70px;
+  }
+  .form-item, .form-actions{margin-top: 0.5em}
+}

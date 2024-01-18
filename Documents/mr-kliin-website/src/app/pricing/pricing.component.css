@@ -1,0 +1,19 @@
+.medium-bg {
+  background-image: url("../../assets/sites/default/files/bags/m.png");
+}
+.large-bg {
+  background-image: url("../../assets/sites/default/files/bags/l.png");
+}
+.clean-press-bg {
+  background-image: url("../../assets/sites/default/files/bags/c.png");
+}
+.acc-panel {
+  display: block;
+}
+.page-node-type-page
+  .field--name-field-paragraphs-ba
+  .field__item:nth-of-type(3)
+  .box-left:before {
+  top: 38px;
+  left: 3em;
+}

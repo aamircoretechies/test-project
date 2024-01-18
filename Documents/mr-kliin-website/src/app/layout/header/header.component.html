@@ -1,0 +1,296 @@
+<div class="header-menu">
+  <div class="region region-top-menu">
+    <div class="content">
+      <div
+        id="block-socialmediablock"
+        class="block block-block-content block-block-content6ee7bbb0-456a-4f8d-ba58-19ef6f5133fd"
+      >
+        <div
+          class="field field--name-field-social-icons field--type-entity-reference field--label-hidden field__items"
+        >
+          <div class="field__item">
+            <div
+              about="/taxonomy/term/2"
+              id="taxonomy-term-2"
+              class="taxonomy-term vocabulary-social-link"
+            >
+              <h2>
+                <a
+                  href="https://www.facebook.com/mrkliin.laundrypickup"
+                  target="_blank"
+                >
+                  <div
+                    class="field field--name-name field--type-string field--label-hidden field__item"
+                  >
+                    Facebook
+                  </div>
+                </a>
+              </h2>
+              <div class="content">
+                <div
+                  class="field field--name-field-icon field--type-image field--label-hidden field__item"
+                >
+                  <a
+                    href="https://www.facebook.com/mrkliin.laundrypickup"
+                    target="_blank"
+                  >
+                    <img
+                      src="assets/sites/default/files/2020-07/facebook.png"
+                      width="512"
+                      height="512"
+                      alt=""
+                      typeof="foaf:Image"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field__item">
+            <div
+              about="/taxonomy/term/4"
+              id="taxonomy-term-4"
+              class="taxonomy-term vocabulary-social-link"
+            >
+              <h2>
+                <a href="https://www.instagram.com/mrkliin/" target="_blank">
+                  <div
+                    class="field field--name-name field--type-string field--label-hidden field__item"
+                  >
+                    Instagram
+                  </div>
+                </a>
+              </h2>
+              <div class="content">
+                <div
+                  class="field field--name-field-icon field--type-image field--label-hidden field__item"
+                >
+                  <a href="https://www.instagram.com/mrkliin/" target="_blank">
+                    <img
+                      src="assets/sites/default/files/2020-07/instagram.png"
+                      width="512"
+                      height="512"
+                      alt=""
+                      typeof="foaf:Image"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="top-menu-icons">
+            <a
+              class="whatsapp-icon"
+              href="https://wa.me/34690849277"
+              target="_blank"
+              ><img src="assets/themes/custom/mrkliin/img/whatsapp.svg"
+            /></a>
+            <a routerLink="./order-start" class="topOrderBtn">{{
+              "bannerBtn" | translate
+            }}</a>
+          </div>
+          <!--User Menus on Mobile Start-->
+          <div class="top-menu-icons" id="user_inheader" *ngIf="myapp.userMenu">
+            <button class="dropbtn" (click)="showHideUserDropDown()">
+              <div class="user-dp">
+                <img src="{{ this.myapp.loginUserImage }}" />
+              </div>
+              <img
+                class="dd-icon"
+                src="assets/themes/custom/mrkliin/img/dd.png"
+              />
+            </button>
+            <div
+              class="dropdown-content off dropdown-mobile"
+              *ngIf="myapp.showDropDownMenu"
+            >
+              <a routerLink="/my-profile">{{ "myProfile" | translate }}</a>
+              <a routerLink="/notifications">{{
+                "Notifications" | translate
+              }}</a>
+              <a routerLink="/my-orders">{{ "myOrders" | translate }}</a>
+
+              <a href="#" (click)="logout()">{{ "logout" | translate }}</a>
+            </div>
+          </div>
+          <!--User Menus on Mobile End-->
+
+          <div class="change-lang-box">
+            <select
+              class="form-control lang-dropdown"
+              #selectedLang
+              (change)="myapp.switchLang(selectedLang.value)"
+            >
+              <option
+                *ngFor="let language of myapp.translate.getLangs()"
+                [value]="language"
+                [selected]="language == myapp.translate.currentLang"
+              >
+                <span *ngIf="language == 'en'">
+                  <img src="assets/images/en.png" style="height: 16" />
+                  Eng</span
+                >
+                <span *ngIf="language == 'es'">
+                  <img src="assets/images/es.png" style="height: 16" />
+                  Esp</span
+                >
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--Login Mobile Layout Button-->
+      <div class="top-menu-icons" *ngIf="!myapp.userMenu">
+        <a
+          routerLink="/login"
+          data-drupal-link-system-path="user/login"
+          id="login_inheader"
+          >{{ "login" | translate }}</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="region region-menu" [class.hamburger-open]="myapp.showMobileNav">
+      <div class="close-menu" (click)="openMobileMenu()"><img src="assets/images/close.svg"></div>
+    <div class="content">
+      <button class="hamburger" (click)="openMobileMenu()">
+        <span class="hamburger-line line-1"></span>
+        <span class="hamburger-line line-2"></span>
+        <span class="hamburger-line line-3"></span>
+      </button>
+      <nav
+        role="navigation"
+        aria-labelledby="block-mainmenu-menu"
+        id="block-mainmenu"
+        class="block block-menu navigation menu--main-menu"
+      >
+        <h2 class="visually-hidden" id="block-mainmenu-menu">Main menu</h2>
+        <ul class="menu">
+          <li class="menu-item">
+            <a
+              routerLink="/about-mr-kliin"
+              data-drupal-link-system-path="node/11"
+              >{{ "aboutUs" | translate }}</a
+            >
+          </li>
+          <li class="menu-item">
+            <a
+              routerLink="/how-it-works"
+              data-drupal-link-system-path="node/5"
+              >{{ "howItWorks" | translate }}</a
+            >
+          </li>
+          <li class="menu-item">
+            <a routerLink="/pricing" data-drupal-link-system-path="node/4">{{
+              "pricing" | translate
+            }}</a>
+          </li>
+
+          <!--Mobile Language option start-->
+          <li class="lang-change-mobile">
+            <a
+              href="#"
+              [class.selected]="myapp.activeLang == 'en'"
+              (click)="myapp.switchLang('en')"
+              ><img src="assets/images/en.png" style="height: 16px" /> Eng</a
+            >
+            <a
+              href="#"
+              [class.selected]="myapp.activeLang == 'es'"
+              (click)="myapp.switchLang('es')"
+              ><img src="assets/images/es.png" style="height: 16px" /> Esp</a
+            >
+          </li>
+          <!--Mobile Language option end-->
+        </ul>
+      </nav>
+      <div
+        id="block-sitebranding"
+        class="block block-system block-system-branding-block"
+      >
+        <a routerLink="/" rel="home" class="site-logo">
+          <img src="assets/sites/default/files/logo.png" alt="Home" />
+        </a>
+      </div>
+      <nav
+        role="navigation"
+        aria-labelledby="block-mainmenulast-menu"
+        id="block-mainmenulast"
+        class="block block-menu navigation menu--main-menu-last"
+      >
+        <h2 class="visually-hidden" id="block-mainmenulast-menu">
+          Main menu last
+        </h2>
+        <ul class="menu">
+          <li class="menu-item">
+            <a
+              routerLink="./pickup-locations"
+              data-drupal-link-system-path="node/7"
+              >{{ "LocationTime" | translate }}</a
+            >
+          </li>
+          <li class="menu-item">
+            <a routerLink="./faq" data-drupal-link-system-path="node/9">{{
+              "faq" | translate
+            }}</a>
+          </li>
+          <li class="menu-item">
+            <a routerLink="/contact-us">{{ "contactUs" | translate }}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav
+        role="navigation"
+        aria-labelledby="block-useraccountmenu-menu"
+        id="block-useraccountmenu"
+        class="block block-menu navigation menu--account"
+      >
+        <h2 class="visually-hidden" id="block-useraccountmenu-menu">
+          User account menu
+        </h2>
+        <ul class="menu hide-mobile">
+          <li class="menu-item" *ngIf="!myapp.userMenu">
+            <a routerLink="/login">{{ "login" | translate }}</a>
+          </li>
+
+          <li class="menu-item dropdown" *ngIf="myapp.userMenu">
+            <button class="dropbtn">
+              Hi <span> {{ myapp.loginUserName }} </span>
+              <img src="assets/themes/custom/mrkliin/img/dd.png" />
+            </button>
+            <div class="dropdown-content off">
+              <a routerLink="/my-profile">{{ "myProfile" | translate }}</a>
+              <a routerLink="/notifications">{{
+                "Notifications" | translate
+              }}</a>
+              <a routerLink="/my-orders">{{ "myOrders" | translate }}</a>
+              <a href="#" (click)="logout()">{{ "logout" | translate }}</a>
+            </div>
+          </li>
+
+          <!--<li>
+            <a href="user/edit.html"></a>
+          </li>-->
+        </ul>
+      </nav>
+      <div id="block-cart-2" class="block-commerce-cart block">
+        <div class="cart--cart-block">
+          <div class="cart-block--summary">
+            <a class="cart-block--link__expand" routerLink="/order-start">
+              <span class="cart-block--summary__icon"
+                ><img
+                  src="assets/themes/custom/mrkliin/img/laundry-service.png"
+                  alt="Shopping cart"
+                  typeof="foaf:Image"
+                />
+              </span>
+              <span class="cart-block--summary__count">{{
+                myapp.cartCount
+              }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <h1 class="page-title">{{ "notifications" | translate }}</h1>
+  </header>
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content" style="max-width:700px">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <ul class="notiList">
+            <li *ngFor="let n of notifications">
+              <a
+                [class.normal]="n.read_status == 1"
+                routerLink="../order-detail/{{ n.order_number }}/{{
+                  n.customer_noti_id
+                }}"
+              >
+                <p>{{ n.description }}</p>
+                <span>{{ api.convertToDateTime(n.created_at, "") }}</span>
+              </a>
+            </li>
+          </ul>
+          <div *ngIf="!notifications.length" class="noRecordFound">
+            No record found!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>

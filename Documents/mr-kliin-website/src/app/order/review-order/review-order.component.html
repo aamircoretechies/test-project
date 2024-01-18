@@ -1,0 +1,381 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <a class="home-btn-orders" routerLink="/"
+      ><img src="assets/images/home.svg"
+    /></a>
+    <h1 class="bannerheading">{{ "reviewYourOrder" | translate }}</h1>
+  </header>
+
+  <main role="main">
+    <div class="layout-content">
+      <div class="region region-content">
+        <div class="goorder-steps">
+          <div class="step in done">
+            <span>1</span>
+            <p>{{ "prepareYourOrder" | translate }}</p>
+          </div>
+          <div class="step in done">
+            <span>2</span>
+            <p>{{ "scheduleYourOrder" | translate }}</p>
+          </div>
+          <div class="step in">
+            <span>3</span>
+            <p>{{ "reviewYourOrder" | translate }}</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <p>{{ "payment" | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="region region-content">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <div class="views-element-container">
+            <div
+              class="view view-products view-id-products view-display-id-page_1 js-view-dom-id-dc277f45751f041c4e5eb77fae0f195c16af825b5ea427724919cd6bb31e95eb"
+            >
+              <div class="view-content">
+                <div class="views-row" style="display:flex;">
+                  <article class="products-product" style="flex:3">
+                    <div class="cartItems">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>{{ "item" | translate }}</th>
+                            <td>{{ "qty" | translate }}</td>
+                            <td>{{ "price" | translate }}</td>
+                          </tr>
+                        </thead>
+                      </table>
+                      <div *ngFor="let cart of cartItems; index as c">
+                        <p *ngIf="checkServiceItemExist(c)">
+                          <span *ngIf="this.myapp.activeLang == 'en'">{{
+                            cart.serviceName
+                          }}</span>
+                          <span *ngIf="this.myapp.activeLang == 'es'">{{
+                            cart.serviceNameSpanish
+                          }}</span>
+                        </p>
+                        <table>
+                          <tr *ngFor="let ci of cart.items">
+                            <th>
+                              <span *ngIf="this.myapp.activeLang == 'en'">{{
+                                ci.itemName
+                              }}</span>
+                              <span *ngIf="this.myapp.activeLang == 'es'">{{
+                                ci.itemNameSpanish
+                              }}</span>
+                              <span
+                                *ngIf="
+                                  ci.itemName == 'Large' ||
+                                  ci.itemName == 'Medium'
+                                "
+                              >
+                                {{ "bag" | translate }}</span
+                              >
+                            </th>
+                            <td>{{ ci.qty }}</td>
+                            <td>{{ ci.price }} €</td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <a routerLink="/order-start" class="btn-dull editBtn">{{
+                        "edit" | translate
+                      }}</a>
+                    </div>
+                  </article>
+                </div>
+
+                <hr class="hide-mobile" />
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "pickupDetail" | translate }}
+                        <a
+                          routerLink="/pickup-dropoff"
+                          class="btn-dull editBtn"
+                          >{{ "edit" | translate }}</a
+                        >
+                      </div>
+                      <br />
+                      <table>
+                        <tr>
+                          <th>
+                            {{ "date" | translate }}/{{ "time" | translate }}:
+                          </th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{ cartData.pickup_date }},&nbsp;
+                            {{ cartData.pickup_time }}
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table>
+                        <tr>
+                          <th>{{ "address" | translate }}:</th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{ cartData.contact_person_name }},
+                            {{ cartData.mobile_number }} -
+                            {{ cartData.complete_address }},
+                            {{ cartData.pin_code }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+                <hr class="hide-mobile" />
+
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "dropoffDetail" | translate }}
+                        <a
+                          routerLink="/pickup-dropoff"
+                          class="btn-dull editBtn"
+                          >{{ "edit" | translate }}</a
+                        >
+                      </div>
+                      <br />
+                      <table>
+                        <tr>
+                          <th>
+                            {{ "date" | translate }}/{{ "time" | translate }}:
+                          </th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{ cartData.dropoff_date }},&nbsp;
+                            {{ cartData.dropoff_time }}
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table>
+                        <tr>
+                          <th>{{ "address" | translate }}:</th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{ cartData.contact_person_name_d }},
+                            {{ cartData.mobile_number_d }} -
+                            {{ cartData.complete_address_d }},
+                            {{ cartData.pin_code_d }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+                <hr class="hide-mobile" />
+
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "specialInstructions" | translate }}
+                        <a
+                          routerLink="/pickup-dropoff"
+                          class="btn-dull editBtn"
+                          >{{ "edit" | translate }}</a
+                        >
+                      </div>
+                      <br />
+                      <table>
+                        <tr>
+                          <td *ngIf="cartData.customer_note">
+                            {{ cartData.customer_note }}
+                          </td>
+                          <td *ngIf="!cartData.customer_note">
+                            {{ "notAvailable" | translate }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+
+                <hr class="hide-mobile" />
+
+                <div class="views-row orderPricingBox">
+                  <article class="couponCodebox">
+                    <div class="couponForm">
+                      <h1>{{ "applyCouponCode" | translate }}</h1>
+                      <form method="post" [formGroup]="couponForm" (ngSubmit)="applyCouponCode()">
+                        <input type="text" class="form-email required" formControlName="coupon_code" />
+                        <button type="submit" class="btn-primary">
+                          {{ "apply" | translate }}
+                        </button>
+                      </form>
+                    </div>
+                  </article>
+
+                  <article class="orderSummaryBox">
+                    <table>
+                      <tr>
+                        <td>{{ "subTotal" | translate }}</td>
+                        <td class="price">€ {{ cartTotalAmt }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "iva" | translate }} ({{ tax_rate }}%)</td>
+                        <td class="price">€ {{ totalTaxAmt }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "serviceCharge" | translate }}</td>
+                        <td class="price">€ {{ serviceChargeAmt }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "discount" | translate }}</td>
+                        <td class="price">€ {{ discountAmount }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "amountToPay" | translate }}</td>
+                        <td class="price">
+                          <b>€ {{ grandTotalAmt }}</b>
+                        </td>
+                      </tr>
+                    </table>
+                  </article>
+                </div>
+
+                <hr class="hide-mobile" />
+
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "preferedWayOfPayment" | translate }}
+                      </div>
+                      <br />
+
+                      <div class="pay-method">
+                        <label class="custom-radio">
+                          <input
+                            type="radio"
+                            name="paymentMode"
+                            value="offline"
+                            id="paymethod-1"
+                            (click)="getPaymentMode('offline')"
+                          />
+                          {{ "cash" | translate }}
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-radio">
+                          <input
+                            type="radio"
+                            name="paymentMode"
+                            value="online"
+                            id="paymethod-2"
+                            (click)="getPaymentMode('online')"
+                          />
+                          {{ "cardOnline" | translate }}
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-radio">
+                          <input
+                            type="radio"
+                            name="paymentMode"
+                            value="card on delivery"
+                            id="paymethod-3"
+                            (click)="getPaymentMode('card on delivery')"
+                          />
+                          {{ "cardAtDelivery" | translate }}
+                          <span class="checkmark"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </article>
+                  <br /><br />
+                </div>
+
+                <p class="pmError text-danger" *ngIf="paymentModeError">
+                  {{ "paymentModeSelectError" | translate }}
+                </p>
+                <div class="">
+                  <p>
+                    <em>{{ "orderDesclaimer" | translate }}</em>
+                  </p>
+                </div>
+
+                <div class="placeOrderBox views-row">
+                  <p class="terms">
+                    {{ "orderTerms" | translate }}
+                    <a routerLink="../terms">{{ "terms" | translate }}</a
+                    >,
+                    <a routerLink="../terms/services">{{
+                      "services" | translate
+                    }}</a>
+                    {{ "and" | translate }}
+                    <a routerLink="../terms/cancellation">{{
+                      "cancellationPolicy" | translate
+                    }}</a>
+                  </p>
+
+                  <button
+                    type="button"
+                    *ngIf="grandTotalAmt > 0"
+                    (click)="showOrderConfirm()"
+                    class="btn-primary placeOrderBtn hide-mobile"
+                  >
+                    {{ "placeOrder" | translate }}
+                  </button>
+
+                  <!--Mobile layout button start-->
+                  <div class="clone-region-mobile">
+                    <div class="bottom-navs">
+                      <button
+                        class="btn btn-seeback"
+                        style="visibility: hidden"
+                      >
+                        <img src="assets/images/chevron-l.png" />
+                        <span>{{ "back" | translate }}</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-seetotal"
+                        *ngIf="grandTotalAmt > 0"
+                        (click)="showOrderConfirm()"
+                      >
+                        <span>{{ "placeOrder" | translate }}</span>
+                      </button>
+                    </div>
+                  </div>
+                  <!--Mobile layout button start-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>
+
+<!-- Pickup Address Modal content -->
+<div id="myModal" class="modal" *ngIf="confirmOrder">
+  <div class="modal-content">
+    <span class="close" (click)="hideModal()">&times;</span>
+    <h2>{{ "orderConfirmation" | translate }}</h2>
+    <p>{{ "orderConfirmationSubHeading" | translate }}</p>
+    <br />
+    <button class="btn btn-primary" type="button" (click)="placeOrder()">
+      {{ "yesPlaceOrder" | translate }}
+    </button>
+  </div>
+</div>

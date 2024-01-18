@@ -1,0 +1,12 @@
+.form-item-pass{position: relative}
+.view-pass{position: absolute; right:16px; top:34px; opacity: 0.5}
+.view-pass:hover{opacity: 0.8; cursor: pointer}
+
+@media (max-width: 768px) {
+    .user-login-form input, .user-pass input, .user-register-form input{
+    width:auto;
+display: block;
+    padding: 10px 0;
+    width: 100%;}
+    .login-btn{padding:10px 15px !important}
+}

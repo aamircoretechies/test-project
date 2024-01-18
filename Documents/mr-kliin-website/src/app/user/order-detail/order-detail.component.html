@@ -1,0 +1,319 @@
+<div class="path-node  product-page page-products path-products">
+  <header role="banner">
+    <h1>Order #{{ orderData.order_number }} Detail</h1>
+  </header>
+
+  <main role="main">
+    <div class="layout-content">
+      <div class="region region-content">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <div class="views-element-container">
+            <div
+              class="view view-products view-id-products view-display-id-page_1 js-view-dom-id-dc277f45751f041c4e5eb77fae0f195c16af825b5ea427724919cd6bb31e95eb"
+            >
+              <div class="view-content">
+                <!--Cancel Order button-->
+                <button
+                  class="btn-primary cancel-order"
+                  type="button"
+                  (click)="showCancelConfirm()"
+                  *ngIf="orderData.status == 1 || orderData.status == 2"
+                >
+                  {{ "cancelThisOrder" | translate }}
+                </button>
+
+                <!--Edit Order button-->
+                <button
+                  class="btn-primary cancel-order"
+                  (click)="showEditConfirm(orderData.order_number)"
+                  *ngIf="
+                    (orderData.status == 1 || orderData.status == 2) &&
+                    orderData.transaction.payment_mode != 'Card Online'
+                  "
+                >
+                  {{ "editThisOrder" | translate }}
+                </button>
+
+                <!--Cancelled Info-->
+                <span
+                  class="warningMsg"
+                  type="button"
+                  *ngIf="orderData.status == 9"
+                >
+                  {{ "thisOrderWasCancelled" | translate }}
+                </span>
+
+                <div class="views-row">
+                  <article class="products-product">
+                    <div class="cartItems">
+                      <table>
+                        <tr>
+                          <th>{{ "item" | translate }}</th>
+                          <td>{{ "qty" | translate }}</td>
+                          <td>{{ "price" | translate }}</td>
+                        </tr>
+                      </table>
+
+                      <div *ngFor="let s of orderData.order_items">
+                        <p>
+                          <span *ngIf="this.myapp.activeLang == 'en'">{{
+                            s.service_name
+                          }}</span>
+                          <span *ngIf="this.myapp.activeLang == 'es'">{{
+                            s.service_name_spanish
+                          }}</span>
+                        </p>
+                        <table>
+                          <tr *ngFor="let si of s.items">
+                            <th>
+                              <span *ngIf="this.myapp.activeLang == 'en'">{{
+                                si.service_item_name
+                              }}</span>
+                              <span *ngIf="this.myapp.activeLang == 'es'">{{
+                                si.service_item_name_spanish
+                              }}</span>
+                            </th>
+                            <td>{{ si.quantity }}</td>
+                            <td>{{ si.total_price }} €</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <hr />
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "pickupDetail" | translate }}
+                      </div>
+                      <br />
+                      <table>
+                        <tr>
+                          <th>
+                            {{ "date" | translate }}/{{ "time" | translate }}:
+                          </th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{
+                              api.convertToDateTime(
+                                orderData.pick_up_date,
+                                "date"
+                              )
+                            }},&nbsp;
+                            {{ orderData.pickup_time | titlecase }}
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table>
+                        <tr>
+                          <th>{{ "address" | translate }}:</th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{ orderData.pickup.contact_person_name }},
+                            {{ orderData.pickup.mobile_number }} -
+                            {{ orderData.pickup.complete_address }},
+                            {{ orderData.pickup.pin_code }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+                <hr />
+
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "dropoffDetail" | translate }}
+                      </div>
+                      <br />
+                      <table>
+                        <tr>
+                          <th>
+                            {{ "date" | translate }}/{{ "time" | translate }}:
+                          </th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{
+                              api.convertToDateTime(
+                                orderData.drop_off_date,
+                                "date"
+                              )
+                            }},&nbsp; {{ orderData.dropoff_time | titlecase }}
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table>
+                        <tr>
+                          <th>{{ "address" | translate }}::</th>
+                          <td>&nbsp;&nbsp;</td>
+                          <td>
+                            {{ orderData.dropoff.contact_person_name }},
+                            {{ orderData.dropoff.mobile_number }} -
+                            {{ orderData.dropoff.complete_address }},
+                            {{ orderData.dropoff.pin_code }}
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+                <hr />
+
+                <div class="views-row">
+                  <article>
+                    <div class="product-info">
+                      <div
+                        class="field field--name-title field--type-string field--label-hidden "
+                      >
+                        {{ "specialInstructions" | translate }}
+                      </div>
+                      <br />
+                      <table>
+                        <tr>
+                          <td *ngIf="orderData.customer_note">
+                            {{ orderData.customer_note }}
+                          </td>
+                          <td *ngIf="!orderData.customer_note">
+                            Not available
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+
+                <hr />
+
+                <div class="views-row orderPricingBox">
+                  <article>
+                    <table>
+                      <tr>
+                        <td>{{ "subTotal" | translate }}</td>
+                        <td class="price">€ {{ orderData.total_amount }}</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          {{ "iva" | translate }} ({{ orderData.tax_rate }}%)
+                        </td>
+                        <td class="price">€ {{ orderData.tax_amount }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "serviceCharge" | translate }}</td>
+                        <td class="price">
+                          € {{ orderData.service_charge_amount }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>{{ "discount" | translate }}</td>
+                        <td class="price">€ {{ orderData.discount_amount }}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "grandTotal" | translate }}</td>
+                        <td class="price">
+                          <b>€ {{ orderData.grand_total }}</b>
+                        </td>
+                      </tr>
+                    </table>
+                  </article>
+                </div>
+
+                <hr />
+
+                <div class="views-row orderPricingBox">
+                  <article>
+                    <table>
+                      <tr>
+                        <td>{{ "paymentStatus" | translate }}</td>
+                        <td class="price" *ngIf="orderData.payment_status == 1">
+                          {{ "paid" | translate }}
+                        </td>
+                        <td class="price" *ngIf="orderData.payment_status == 0">
+                          {{ "notPaid" | translate }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>{{ "paymentMode" | translate }}</td>
+                        <td class="price">
+                          <!--{{ orderData.transaction.payment_mode | titlecase }}-->
+                          <span
+                            *ngIf="orderData.transaction.payment_mode == 'Cash'"
+                            >{{ "cash" | translate }}</span
+                          >
+                          <span
+                            *ngIf="
+                              orderData.transaction.payment_mode ==
+                              'Card Online'
+                            "
+                            >{{ "cardOnline" | translate }}</span
+                          >
+                          <span
+                            *ngIf="
+                              orderData.transaction.payment_mode ==
+                              'card on delivery'
+                            "
+                            >{{ "cardAtDelivery" | translate }}</span
+                          >
+                        </td>
+                      </tr>
+                    </table>
+                  </article>
+                </div>
+
+                <div style="display: flex" class="back">
+                  <a routerLink="/my-orders" class="btn-dull">{{
+                    "back" | translate
+                  }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>
+
+<!-- Order cancel confirmation Modal content -->
+<div id="myModal" class="modal" *ngIf="confirmOrder">
+  <div class="modal-content">
+    <span class="close" (click)="hideModal()">&times;</span>
+    <h2>{{ "pleaseConfirm" | translate }}</h2>
+    <p>{{ "orderCancelSubHeading" | translate }}</p>
+    <br />
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="updateOrderStatus(orderData.order_id, 9)"
+    >
+      {{ "yesCancelThisOrder" | translate }}
+    </button>
+  </div>
+</div>
+
+<!-- Order edit confirmation content -->
+<div id="myModal" class="modal" *ngIf="editOrder">
+  <div class="modal-content">
+    <span class="close" (click)="hideModal()">&times;</span>
+    <h2>{{ "pleaseConfirm" | translate }}</h2>
+    <p>{{ "orderEditSubHeading" | translate }}</p>
+    <br />
+    <a class="btn btn-primary" routerLink="../../order-start/{{ orderNumber }}">
+      {{ "yesEditThisOrder" | translate }}
+    </a>
+  </div>
+</div>

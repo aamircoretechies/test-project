@@ -1,0 +1,841 @@
+<div class="path-node page-node-type-page page-pricing">
+  <header
+    role="banner"
+    style="
+      background-image: url('assets/sites/default/files/2020-08/IMG_0341.jpg');
+    "
+  >
+    <div class="region region-header">
+      <div
+        id="block-mrkliin-page-title"
+        class="block block-core block-page-title-block"
+      >
+        <h1 class="page-title">
+          <span
+            property="schema:name"
+            class="field field--name-title field--type-string field--label-hidden"
+            >{{ "pricing" | translate }}</span
+          >
+        </h1>
+      </div>
+      <div
+        class="views-element-container block block-views block-views-blockpage-subtitle-block-1"
+        id="block-views-block-page-subtitle-block-1"
+      >
+        <div>
+          <div
+            class="view view-page-subtitle view-id-page_subtitle view-display-id-block_1 js-view-dom-id-52130cc1fa00128c78144d0e666c0b1e3b0ed822f178c1d08a5b6867583da3f0"
+          >
+            <div class="view-content">
+              <div class="views-row">
+                <div class="views-field views-field-field-basic-page-subtitle">
+                  <div class="field-content">
+                    <p>{{ "pricingSubHeading" | translate }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="block-mrkliin-breadcrumbs"
+        class="block block-system block-system-breadcrumb-block"
+      >
+        <nav
+          class="breadcrumb"
+          role="navigation"
+          aria-labelledby="system-breadcrumb"
+        >
+          <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+          <ol>
+            <li>
+              <a routerLink="/">Home</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div data-drupal-messages-fallback class="hidden"></div>
+    </div>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="region region-content">
+        <div
+          id="block-mrkliin-content"
+          class="block block-system block-system-main-block"
+        >
+          <article
+            data-history-node-id="4"
+            role="article"
+            about="/pricing"
+            typeof="schema:WebPage"
+            class="node node--type-page node--view-mode-full"
+          >
+            <span
+              property="schema:name"
+              content="Pricing"
+              class="rdf-meta hidden"
+            ></span>
+            <div class="node__content">
+              <div
+                class="clearfix text-formatted field field--name-field-basic-page-subtitle field--type-text-long field--label-hidden field__item"
+              >
+                <p>{{ "pricingSubHeading" | translate }}</p>
+              </div>
+              <div
+                class="field field--name-field-paragraphs-ba field--type-entity-reference-revisions field--label-hidden field__items"
+              >
+                <!--Desktop layout start-->
+                <div
+                  class="field__item hide-mobile"
+                  *ngFor="let b of bags; index as i"
+                >
+                  <div
+                    class="field-background-white field-positioning-left field-width-contained paragraph paragraph--type--promotional-box paragraph--view-mode--default"
+                  >
+                    <div class="content">
+                      <div
+                        class="box-left"
+                        [class.medium-bg]="b.item_name == 'Medium'"
+                        [class.large-bg]="b.item_name == 'Large'"
+                      >
+                        <div
+                          content="50"
+                          class="field field--name-field__box-price field--type-float field--label-hidden field__item"
+                        >
+                          {{ b.price }}€
+                        </div>
+                      </div>
+                      <!--Medium Bag description-->
+                      <div class="box-right" *ngIf="b.item_name == 'Medium'">
+                        <h2>
+                          <div
+                            class="field field--name-field-title field--type-string field--label-hidden field__item"
+                          >
+                            {{ "washFold-Medium" | translate }}
+                          </div>
+                        </h2>
+                        <div
+                          class="clearfix text-formatted field field--name-field-details field--type-text-long field--label-hidden field__item"
+                        >
+                          <p>
+                            {{ "washFold-MediumInfo" | translate }}
+                          </p>
+                        </div>
+                        <div
+                          class="field field--name-field-paragraph-lists field--type-entity-reference-revisions field--label-hidden field__items"
+                        >
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-Medium-P1" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-Medium-P2" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-Medium-P3" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-Medium-P4" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="field field--name-field-button field--type-entity-reference-revisions field--label-hidden field__items"
+                        >
+                          <div class="field__item">
+                            <div
+                              class="button-style-background paragraph paragraph--type--button paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                              >
+                                <a routerLink="/order-start">{{ "orderNow" | translate }}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--Large bag description-->
+                      <div class="box-right" *ngIf="b.item_name == 'Large'">
+                        <h2>
+                          <div
+                            class="field field--name-field-title field--type-string field--label-hidden field__item"
+                          >
+                            {{ "washFold-Large" | translate }}
+                          </div>
+                        </h2>
+                        <div
+                          class="clearfix text-formatted field field--name-field-details field--type-text-long field--label-hidden field__item"
+                        >
+                          <p>
+                            {{ "washFold-LargeInfo" | translate }}
+                          </p>
+                        </div>
+                        <div
+                          class="field field--name-field-paragraph-lists field--type-entity-reference-revisions field--label-hidden field__items"
+                        >
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-P1" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-P2" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-P3" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-P4" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "washFold-P5" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="field field--name-field-button field--type-entity-reference-revisions field--label-hidden field__items"
+                        >
+                          <div class="field__item">
+                            <div
+                              class="button-style-background paragraph paragraph--type--button paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                              >
+                                <a routerLink="/order-start">{{ "orderNow" | translate }}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--item based services start-->
+                <div
+                  class="field__item hide-mobile"
+                  *ngFor="let os of otherServices; index as osi"
+                >
+                  <div
+                    *ngIf="osi == 0"
+                    class="field-background-white field-positioning-left field-width-contained paragraph paragraph--type--promotional-box paragraph--view-mode--default"
+                  >
+                    <div class="content">
+                      <div
+                        class="box-left"
+                        [ngStyle]="{
+                          'background-image': 'url(' + os.service_image + ')'
+                        }"
+                      >
+                        <div
+                          content="3"
+                          class="field field--name-field__box-price field--type-float field--label-hidden field__item"
+                        >
+                        <!--{{ os.min_price }}--> 3€
+                        </div>
+                      </div>
+                      <div class="box-right">
+                        <h2>
+                          <div
+                            class="field field--name-field-title field--type-string field--label-hidden field__item"
+                          >
+                            <span *ngIf="this.myapp.activeLang == 'en'">
+                              {{ os.service_name }}
+                            </span>
+                            <span *ngIf="this.myapp.activeLang == 'es'">
+                              {{ os.service_name_spanish }}
+                            </span>
+                          </div>
+                        </h2>
+                        <div
+                          class="clearfix text-formatted field field--name-field-details field--type-text-long field--label-hidden field__item"
+                        >
+                          <p>
+                            {{ "cleanPress-GarmentBagInfo" | translate }}
+                            <a *ngIf="this.myapp.activeLang == 'en'" routerLink="/price-list"> (See full price list)</a>
+                            <a *ngIf="this.myapp.activeLang == 'es'" routerLink="/price-list"> (Ver lista de precios completa)</a>
+                          </p>
+                        </div>
+                        <div
+                          class="field field--name-field-paragraph-lists field--type-entity-reference-revisions field--label-hidden field__items"
+                        >
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "cleanPress-GarmentBagP1" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "cleanPress-GarmentBagP2" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="field__item">
+                            <div
+                              class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-text field--type-string field--label-hidden field__items"
+                              >
+                                <div class="field__item">
+                                  {{ "cleanPress-GarmentBagP3" | translate }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="field field--name-field-button field--type-entity-reference-revisions field--label-hidden field__items"
+                        >
+                          <div class="field__item">
+                            <div
+                              class="button-style-background paragraph paragraph--type--button paragraph--view-mode--default"
+                            >
+                              <div
+                                class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                              >
+                                <a routerLink="/order-start">{{ "orderNow" | translate }}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Desktop layout start-->
+
+                <div class="paragraph paragraph--type--prices paragraph--view-mode--default">
+                <!--Modile layout start-->
+                <div class="hide-desktop show-mobile section-pricing-mobile">
+                    <!-- one accordion  -->
+                  <button class="accordion" (click)="showHideItem1()">
+                    {{ "washFold-Medium" | translate }} <span class="arrow {{ item1Errow }}"></span>
+                  </button>
+                  <div class="acc-panel faq-acc-panel" *ngIf="item1" >
+                    <div class="field__item show-desktop">
+                      <div
+                        class="field-background-grey field-positioning-left field-width-contained paragraph paragraph--type--promotional-box paragraph--view-mode--default"
+                      >
+                        <div class="content">
+                          <div
+                            class="box-left"
+                            style="
+                              background-image: url('assets/sites/default/files/bags/m.png');
+                            "
+                          >
+                            <div
+                              content="30"
+                              class="field field--name-field__box-price field--type-float field--label-hidden field__item"
+                            >
+                              {{ bags[0].price }}€
+                            </div>
+                          </div>
+                          <div class="box-right">
+                            <h2>
+                              <div
+                                class="field field--name-field-title field--type-string field--label-hidden field__item"
+                              >
+                                {{ "washFold-Medium" | translate }}
+                              </div>
+                            </h2>
+                            <div
+                              class="clearfix text-formatted field field--name-field-details field--type-text-long field--label-hidden field__item"
+                            >
+                              <p>
+                                {{ "washFold-MediumInfo" | translate }}
+                              </p>
+                            </div>
+                            <div
+                              class="field field--name-field-paragraph-lists field--type-entity-reference-revisions field--label-hidden field__items"
+                            >
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-Medium-P1" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-Medium-P2" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-Medium-P3" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-Medium-P4" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="field field--name-field-button field--type-entity-reference-revisions field--label-hidden field__items shift-inmobile"
+                            >
+                              <div class="field__item">
+                                <div
+                                  class="button-style-background paragraph paragraph--type--button paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                                  >
+                                    <a routerLink="/order-start">{{ "orderNow" | translate }}</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                    <!-- two accordion  -->
+                  <button class="accordion" (click)="showHideItem2()">
+                    {{ "washFold-Large" | translate }}  <span class="arrow {{ item2Errow }}"></span>
+                  </button>
+                  <div class="acc-panel faq-acc-panel" *ngIf="item2">
+                    <div class="field__item show-desktop">
+                      <div
+                        class="field-background-white field-positioning-left field-width-contained paragraph paragraph--type--promotional-box paragraph--view-mode--default"
+                      >
+                        <div class="content">
+                          <div
+                            class="box-left"
+                            style="
+                              background-image: url('assets/sites/default/files/bags/l.png');
+                            "
+                          >
+                            <div
+                              content="50"
+                              class="field field--name-field__box-price field--type-float field--label-hidden field__item"
+                            >
+                            {{ bags[1].price }}€
+                            </div>
+                          </div>
+                          <div class="box-right">
+                            <h2>
+                              <div
+                                class="field field--name-field-title field--type-string field--label-hidden field__item"
+                              >
+                                {{ "washFold-Large" | translate }}
+                              </div>
+                            </h2>
+                            <div
+                              class="clearfix text-formatted field field--name-field-details field--type-text-long field--label-hidden field__item"
+                            >
+                              <p>
+                                {{ "washFold-LargeInfo" | translate }} 
+                              </p>
+                            </div>
+                            <div
+                              class="field field--name-field-paragraph-lists field--type-entity-reference-revisions field--label-hidden field__items"
+                            >
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-P1" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-P2" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-P3" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-P4" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="field__item">
+                                <div
+                                  class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                  >
+                                    <div class="field__item">
+                                      {{ "washFold-P5" | translate }}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="field field--name-field-button field--type-entity-reference-revisions field--label-hidden field__items shift-inmobile"
+                            >
+                              <div class="field__item">
+                                <div
+                                  class="button-style-background paragraph paragraph--type--button paragraph--view-mode--default"
+                                >
+                                  <div
+                                    class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                                  >
+                                    <a routerLink="/order-start"
+                                      >{{ "orderNow" | translate }}</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    <!-- three accordion  -->
+                  <!--Item based services-->
+                  <div class="itemBoxes" *ngFor="let os of otherServices; index as osi">
+                    <div *ngIf="osi == 0">
+                      <button class="accordion" (click)="showHideItem3(os.service_id)">
+                        <span *ngIf="this.myapp.activeLang == 'en'">
+                          {{ os.service_name }}
+                        </span>
+                        <span *ngIf="this.myapp.activeLang == 'es'">
+                          {{ os.service_name_spanish }}
+                        </span> <span class="arrow" [class.arrow-down]="os.service_id != item3" [class.arrow-up]="os.service_id == item3"></span>
+                      </button>
+                      <div class="acc-panel faq-acc-panel" *ngIf="os.service_id == item3">
+                        <div class="field__item show-desktop">
+                          <div
+                            class="field-background-white field-positioning-left field-width-contained paragraph paragraph--type--promotional-box paragraph--view-mode--default"
+                          >
+                            <div class="content">
+                              <div
+                                class="box-left"
+                                [ngStyle]="{
+                                  'background-image': 'url(' + os.service_image + ')'
+                                }"
+                              >
+                                <span
+                                  style="position: absolute; left: 8.5em; top: 0"
+                                  >{{ "from" | translate }}</span
+                                >
+                                <div
+                                  content="3"
+                                  class="field field--name-field__box-price field--type-float field--label-hidden field__item"
+                                >
+                                <!--{{ os.min_price }}--> 3€
+                                </div>
+                              </div>
+                              <div class="box-right">
+                                <h2>
+                                  <div
+                                    class="field field--name-field-title field--type-string field--label-hidden field__item"
+                                  >
+                                    {{ "cleanPress-GarmentBag" | translate }}
+                                  </div>
+                                </h2>
+                                <div
+                                  class="clearfix text-formatted field field--name-field-details field--type-text-long field--label-hidden field__item"
+                                >
+                                  <p>
+                                    {{ "cleanPress-GarmentBagInfo" | translate }}
+                                    <a *ngIf="this.myapp.activeLang == 'en'" routerLink="/price-list"> (See full price list)</a>
+                                    <a *ngIf="this.myapp.activeLang == 'es'" routerLink="/price-list"> (Ver lista de precios completa)</a>
+                                  </p>
+                                </div>
+                                <div
+                                  class="field field--name-field-paragraph-lists field--type-entity-reference-revisions field--label-hidden field__items"
+                                >
+                                  <div class="field__item">
+                                    <div
+                                      class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                    >
+                                      <div
+                                        class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                      >
+                                        <div class="field__item">
+                                          {{ "cleanPress-GarmentBagP1" | translate }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="field__item">
+                                    <div
+                                      class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                    >
+                                      <div
+                                        class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                      >
+                                        <div class="field__item">
+                                          {{ "cleanPress-GarmentBagP2" | translate }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="field__item">
+                                    <div
+                                      class="paragraph paragraph--type--bullet-points paragraph--view-mode--default"
+                                    >
+                                      <div
+                                        class="field field--name-field-text field--type-string field--label-hidden field__items"
+                                      >
+                                        <div class="field__item">
+                                          {{ "cleanPress-GarmentBagP3" | translate }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  class="field field--name-field-button field--type-entity-reference-revisions field--label-hidden field__items shift-inmobile"
+                                >
+                                  <div class="field__item">
+                                    <div
+                                      class="button-style-background paragraph paragraph--type--button paragraph--view-mode--default"
+                                    >
+                                      <div
+                                        class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                                      >
+                                        <a routerLink="/order-start">{{ "orderNow" | translate }}</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Modile layout end-->
+                
+                </div>
+
+                <br />
+                <br />
+
+                <!--Info content-->
+                <div class="field__item">
+                  <div
+                    class="paragraph paragraph--type--highlighted-text paragraph--view-mode--default"
+                  >
+                    <div class="content">
+                      <div
+                        class="clearfix text-formatted field field--name-field-long-text field--type-text-long field--label-hidden field__item"
+                      >
+                        <ul class="tick-list">
+                          <li>{{ "keyPoint1" | translate }}</li>
+                          <li>{{ "keyPoint2" | translate }}</li>
+                          <li>{{ "keyPoint3" | translate }}</li>
+                          <li>{{ "keyPoint4" | translate }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <br />
+                <div class="field__item">
+                  <div
+                    class="paragraph paragraph--type--cta-banner paragraph--view-mode--default"
+                  >
+                    <div class="content">
+                      <h2>
+                        <div
+                          class="field field--name-field-title field--type-string field--label-hidden field__item"
+                        >
+                          {{ "readyToOrder" | translate }}
+                        </div>
+                      </h2>
+                      <div
+                        class="field field--name-field-subtitle field--type-string field--label-hidden field__item"
+                      >
+                        {{ "readyToOrderInfor" | translate }}
+                      </div>
+                      <div
+                        class="field field--name-field-cta-button field--type-link field--label-hidden field__item"
+                      >
+                        <a routerLink="/order-start">{{ "scheduleYourOrderNow" | translate }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="footer-insert"></div>
+  </main>
+</div>
